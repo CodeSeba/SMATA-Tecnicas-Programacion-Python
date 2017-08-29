@@ -31,7 +31,7 @@ Algoritmo Ejercicio10
 	// B.
 	mayores = 0
 	menores = 0
-  igual18 = 0
+  	igual18 = 0
 	totalAlumnos = 0
 	
 	nombre = IngresarNombre
@@ -54,10 +54,10 @@ Algoritmo Ejercicio10
     
 	FinMientras
 	
-	porcentajeMayores = ( mayores / totalAlumnos) * 100     //D.
+	porcentajeMayores = ( mayores / totalAlumnos) * 100     // D.
 	
 	Mostrar "Cantidad de Mayores de edad: ",mayores
-  Mostrar "Cantidad de 18 años de edad: ",igual18         // No se solicita pero la profe lo puso igual.
+  	Mostrar "Cantidad de 18 años de edad: ",igual18         // No se solicita pero la profe lo puso igual.
 	Mostrar "Cantidad de Menores de edad: ",menores
 	Mostrar "Porcentaje de Mayores de edad: ",Trunc(porcentajeMayores),"%"
 
