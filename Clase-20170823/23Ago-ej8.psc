@@ -3,7 +3,7 @@ Funcion unValor <- ValorIngresado
 	Leer unValor
 FinFuncion
 
-Algoritmo Ejercicio7
+Algoritmo Ejercicio8
 	// Dada una lista de nro positivos que finaliza al ingresar un cero.
 	// Se pide mostrar:
 	// Cantidad de positivos
