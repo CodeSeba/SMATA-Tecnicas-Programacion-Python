@@ -36,18 +36,19 @@ Algoritmo Ejercicio10
 	
 	nombre = IngresarNombre
   
-  Mientras ( nombre <> 'pepe' )
+  	Mientras ( nombre <> 'pepe' )
 
-    edad = IngresarEdad
+    		edad = IngresarEdad
 		totalAlumnos = totalAlumnos + 1
 		
 		Si ( edad < 18 )          // C.
 			menores = menores + 1
 		SiNo
 			Si ( edad == 18 )
-        igual18 = igual18 + 1
-      Sino
-        mayores = mayores + 1
+				igual18 = igual18 + 1
+			Sino
+				mayores = mayores + 1
+			FinSi
 		FinSi
     
 		nombre = IngresarNombre		
