@@ -1,4 +1,6 @@
-Funcion nro <- IngresarNumero
+Funcion unValor <- ValorIngresado
+	Mostrar "Ingresar Valor"
+	Leer unValor
 FinFuncion
 
 Algoritmo Ejercicio7
@@ -10,7 +12,7 @@ Algoritmo Ejercicio7
 	impares = 0
 	
 	Hacer
-		nro = IngresarNumero()
+		nro = ValorIngresado
 		resto = nro % 2
 		
 		Si ( resto == 0 )
@@ -21,6 +23,7 @@ Algoritmo Ejercicio7
 		
 	Hasta Que nro == 0
 	
-	Mostrar "Cantidad Pares: ",pares," Cantidad Impares: ",impares
+	Mostrar "Cantidad Pares: ",pares
+	Mostrar "Cantidad Impares: ",impares
 	
 FinAlgoritmo

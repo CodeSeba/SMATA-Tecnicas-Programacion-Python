@@ -1,7 +1,12 @@
+Funcion unValor <- ValorIngresado
+	Mostrar "Ingresar Valor"
+	Leer unValor
+FinFuncion
+
 Algoritmo Ejercicio6
 	
 	// Usando el operador % resto
-	nro1 = valorIngresado
+	nro1 = ValorIngresado
 	resto = nro1 % 2
 	
 	Si ( resto == 0 )
@@ -11,8 +16,8 @@ Algoritmo Ejercicio6
 	FinSi
 	
 	// Usando el operador // entero
-	nro1 = valorIngresado
-	parteEntera = nro1 - (nro1 % 2) // es igual a parteEntera = nro1 // 2
+	nro1 = ValorIngresado
+	parteEntera = Trunc( nro1 / 2 ) // es igual a parteEntera = nro1 // 2
 	cociente = nro1 / 2
 	
 	Si ( parteEntera == cociente )

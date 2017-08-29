@@ -1,13 +1,18 @@
+Funcion unValor <- ValorIngresado
+	Mostrar "Ingresar Valor"
+	Leer unValor
+FinFuncion
+
 Algoritmo Ejercicio3
-	nro1 = 0
-	nro2 = 0
+	nro1 = ValorIngresado
+	nro2 = ValorIngresado
 	
 	Si (nro1 > nro2)
 		resta = nro1 - nro2
-		Imprimir "Resta: ",resto
+		Mostrar "Resta: ",resta
 		Si (nro2 <> 0)
 			cociente = nro1 / nro2
-			Imprimir "Cociente: ",cociente
+			Mostrar "Cociente: ",cociente
 		FinSi
 	FinSi
 FinAlgoritmo

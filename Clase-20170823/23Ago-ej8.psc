@@ -1,9 +1,11 @@
-Funcion nro <- IngresarNumero
+Funcion unValor <- ValorIngresado
+	Mostrar "Ingresar Valor"
+	Leer unValor
 FinFuncion
 
 Algoritmo Ejercicio7
-	// Dada una lista de nro positivos que finaliza al ingresar
-	// un cero.  Se pide mostrar
+	// Dada una lista de nro positivos que finaliza al ingresar un cero.
+	// Se pide mostrar:
 	// Cantidad de positivos
 	// Cantidad de negativos
 	// Cantidad de pares
@@ -15,7 +17,7 @@ Algoritmo Ejercicio7
 	negativos = 0
 	
 	Hacer
-		nro = IngresarNumero()
+		nro = ValorIngresado
 		resto = nro % 2
 		
 		Si ( resto == 0 )
