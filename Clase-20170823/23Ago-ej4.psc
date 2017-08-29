@@ -1,12 +1,10 @@
-Funcion unValor <- ValorIngresado
-	Mostrar "Ingresar Valor"
-	Leer unValor
+Funcion nro <- valorIngresado
 FinFuncion
 
 Algoritmo Ejercicio4
-	nro1 = ValorIngresado
-	nro2 = ValorIngresado
-	nro3 = ValorIngresado
+	nro1 = valIngresado
+	nro2 = valIngresado
+	nro3 = valIngresado
 	
 	nroMayor = nro1
 	

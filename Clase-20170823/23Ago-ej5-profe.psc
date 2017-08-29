@@ -4,15 +4,13 @@
 // Si B es mayor: el cociente entre B y C
 // Si C es mayor: mostrar el menor.
 
-Funcion unValor <- ValorIngresado
-	Mostrar "Ingresar Valor"
-	Leer unValor
+Funcion nro <- valorIngresado
 FinFuncion
 
 Algoritmo Ejercicio5
-	A = ValorIngresado
-	B = ValorIngresado
-	C = ValorIngresado
+	A = valorIngresado
+	B = valorIngresado
+	C = valorIngresado
 	
 	Si ( A > B )
 			Si ( A > C )
