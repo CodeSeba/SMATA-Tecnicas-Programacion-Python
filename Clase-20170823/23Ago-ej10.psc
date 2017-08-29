@@ -8,7 +8,7 @@ Funcion unaEdad <- IngresarEdad
 	Leer unaEdad
 FinFuncion
 
-Algoritmo Ejercicio7
+Algoritmo Ejercicio10
 	// A. Ingresar el nombre y edad de una persona
 	// 	Se pide imprimir el nombre si es o no mayor de edad
 	// B. Ingresar por teclado los nombres y edades
