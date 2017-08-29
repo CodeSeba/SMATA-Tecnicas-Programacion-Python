@@ -10,11 +10,11 @@ Algoritmo Ejercicio4
 	
 	nroMayor = nro1
 	
-	Si (nro2 > nroMayor)
+	Si ( nro2 > nroMayor )
 		nroMayor = nro2
 	FinSi
 	
-	Si	(nro3 > nroMayor)
+	Si	( nro3 > nroMayor )
 		nromayor = nro3
 	FinSi
 	
