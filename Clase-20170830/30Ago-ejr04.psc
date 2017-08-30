@@ -11,7 +11,8 @@ Algoritmo Ejercicio3
 	
 	Dimension uno[5]
 	Dimension dos[5]
-		
+	flag = 0
+	
 	Para z = 1 Hasta 5 Con Paso 1			// Carga de datos
 		Imprimir "Arreglo uno."
 		uno[z] = IngresarValor
@@ -19,16 +20,25 @@ Algoritmo Ejercicio3
 		dos[z] = IngresarValor
 	FinPara
 	
+	
 	Para i = 1 Hasta 5 Con Paso 1
 		
-		Para j = i Hasta 5 Con Paso 1
+		flag = 0
+		
+		Para j = 1 Hasta 5 Con Paso 1
 			
 			Si ( uno[i] == dos[j] )
 				
-				Imprimir "Repetido: ",uno[i]
+				flag = 1
 				
 			FinSi
 		FinPara
+		
+		Si ( flag == 0 )
+			
+			Imprimir "Distinto: ",uno[i]
+			
+		FinSi
 	FinPara
 	
 FinAlgoritmo
