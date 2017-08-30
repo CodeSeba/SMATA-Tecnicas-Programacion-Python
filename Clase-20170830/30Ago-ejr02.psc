@@ -19,7 +19,6 @@ Algoritmo Ejercicio2
 		avalor[z] = IngresarValor
 		Imprimir "Arreglo num."
 		num[z] = IngresarValor
-	
 	FinPara
 	
 	
@@ -31,7 +30,9 @@ Algoritmo Ejercicio2
 	FinPara
 	
 	Para j =1 Hasta 5 Con Paso 1
+		
 		Imprimir suma[j]
+		
 	FinPara
 	
 FinAlgoritmo
