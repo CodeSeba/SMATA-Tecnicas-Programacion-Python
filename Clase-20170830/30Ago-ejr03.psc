@@ -19,7 +19,7 @@ Algoritmo Ejercicio3
 		dos[z] = IngresarValor
 	FinPara
 	
-	Para i = 1 Hasta 4 Con Paso 1
+	Para i = 1 Hasta 5 Con Paso 1
 		
 		Para j = i Hasta 5 Con Paso 1
 			
