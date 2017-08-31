@@ -3,7 +3,7 @@ Funcion unValor <- IngresarValor
 	Leer unValor
 FinFuncion
 
-Algoritmo Ejercicio3
+Algoritmo Ejercicio4
 	
 	// Ingresar 5 valores enteros en el arreglo 'uno' y
 	// otros 5 en el arreglo 'dos'.
