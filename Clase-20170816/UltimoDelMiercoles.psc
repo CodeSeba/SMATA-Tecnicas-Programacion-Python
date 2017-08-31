@@ -128,10 +128,10 @@ Algoritmo UltimoDelMiercoles
 	
 	
 	// Punto a) Cantidad de cartas de cada palo
-	Escribir 'La cantidad de Basto es: ' + CantB
-	Escribir 'La cantidad de Copa es: ' + CantC
-	Escribir 'La cantidad de Oros es: ' + CantO
-	Escribir 'La cantidad de Espadas es: ' + CantE
+	Imprimir 'La cantidad de Basto es: ' + CantB
+	Imprimir 'La cantidad de Copa es: ' + CantC
+	Imprimir 'La cantidad de Oros es: ' + CantO
+	Imprimir 'La cantidad de Espadas es: ' + CantE
 	
 	
 	
@@ -139,19 +139,19 @@ Algoritmo UltimoDelMiercoles
 	// Punto b) Pila con más cantidad de cartas.
 	Segun Fmayor Hacer
 		Caso 1:
-			Escribir 'La pila de Bastos tiene más cartas ( ' + MayorCant + ' )'
+			Imprimir 'La pila de Bastos tiene más cartas ( ' + MayorCant + ' )'
 			Interrumpir
 		Caso 2:
-			Escribir 'La pila de Copas tiene más cartas ( ' + MayorCant + ' )'
+			Imprimir 'La pila de Copas tiene más cartas ( ' + MayorCant + ' )'
 			Interrumpir
 		Caso 3:
-			Escribir 'La pila de Oros tiene más cartas ( ' + MayorCant + ' )'
+			Imprimir 'La pila de Oros tiene más cartas ( ' + MayorCant + ' )'
 			Interrumpir
 		Caso 4:
-			Escribir 'La pila de Espadas tiene más cartas ( ' + MayorCant + ' )'
+			Imprimir 'La pila de Espadas tiene más cartas ( ' + MayorCant + ' )'
 			Interrumpir
 		De Otro Modo: // Por defecto:
-			Escribir 'Error'
+			Imprimir 'Error'
 	FinSegun
 	
 	
@@ -160,29 +160,29 @@ Algoritmo UltimoDelMiercoles
 	// Punto c) Pila con menos cantidad de cartas.
 	Segun Fmenor Hacer
 		Caso 1:
-			Escribir 'La pila de Bastos tiene menos cartas ( ' + MenorCant + ' )'
+			Imprimir 'La pila de Bastos tiene menos cartas ( ' + MenorCant + ' )'
 			Interrumpir
 		Caso 2:
-			Escribir 'La pila de Copas tiene menos cartas ( ' + MenorCant + ' )'
+			Imprimir 'La pila de Copas tiene menos cartas ( ' + MenorCant + ' )'
 			Interrumpir
 		Caso 3:
-			Escribir 'La pila de Oros tiene menos cartas ( ' + MenorCant + ' )'
+			Imprimir 'La pila de Oros tiene menos cartas ( ' + MenorCant + ' )'
 			Interrumpir
 		Caso 4:
-			Escribir 'La pila de Espadas tiene menos cartas ( ' + MenorCant + ' )'
+			Imprimir 'La pila de Espadas tiene menos cartas ( ' + MenorCant + ' )'
 			Interrumpir
 		De Otro Modo: // Por defecto:
-			Escribir 'Error'
+			Imprimir 'Error'
 	FinSegun
 	
 	
 	
 	
 	// Punto d) Porcentaje de cartas boca arriba de cada pila.
-	Escribir 'El porcentaje de Bastos boca arriba es: ' + (CbarB * 100 / CantB)
-	Escribir 'El porcentaje de Copas boca arriba es: ' + (CbarC * 100 / CantC)
-	Escribir 'El porcentaje de Oros boca arriba es: ' + (CbarO * 100 / CantO)
-	Escribir 'El porcentaje de Espadas boca arriba es: ' + (CbarE * 100 / CantE)
+	Imprimir 'El porcentaje de Bastos boca arriba es: ' + (CbarB * 100 / CantB)
+	Imprimir 'El porcentaje de Copas boca arriba es: ' + (CbarC * 100 / CantC)
+	Imprimir 'El porcentaje de Oros boca arriba es: ' + (CbarO * 100 / CantO)
+	Imprimir 'El porcentaje de Espadas boca arriba es: ' + (CbarE * 100 / CantE)
 	
 FinAlgoritmo
 
