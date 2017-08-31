@@ -1,5 +1,5 @@
 Funcion unValor <- ValorIngresado
-	Mostrar "Ingresar Valor"
+	Imprimir "Ingresar Valor"
 	Leer unValor
 FinFuncion
 
@@ -10,9 +10,13 @@ Algoritmo Ejercicio6
 	resto = nro1 % 2
 	
 	Si ( resto == 0 )
-		Mostrar "Nro1 es Par"
+		
+		Imprimir "Nro1 es Par"
+		
 	SiNo
-		Mostrar "Nro1 es Impar"
+		
+		Imprimir "Nro1 es Impar"
+		
 	FinSi
 	
 	// Usando el operador // entero
@@ -21,9 +25,12 @@ Algoritmo Ejercicio6
 	cociente = nro1 / 2
 	
 	Si ( parteEntera == cociente )
-		Mostrar "Nro1 es Par"
+		
+		Imprimir "Nro1 es Par"
+		
 	SiNo
-		Mostrar "Nro1 es Impar"
+		
+		Imprimir "Nro1 es Impar"
 	FinSi
 	
 FinAlgoritmo

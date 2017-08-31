@@ -10,28 +10,35 @@ Algoritmo Ejercicio2
 	// Deben imprimir el arreglo 'suma' con la suma
 	// de cada posicion de los arreglos.
 	
-	Dimension avalor[5]
-	Dimension num[5]
-	Dimension suma[5]
+	Dimension aValor[5],num[5],suma[5]		// Valor es una palabra reservada de PSeInt,
+											// se utiliza entonces aValor.
 	
-	Para z = 1 Hasta 5 Con Paso 1			// Carga de datos
-		Imprimir "Arreglo valor."
-		avalor[z] = IngresarValor
-		Imprimir "Arreglo num."
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
+		
+		Imprimir "Arreglo VALOR, posicion ",z,"."
+		aValor[z] = IngresarValor
+		
+	FinPara
+	
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
+		
+		Imprimir "Arreglo NUM, posicion ",z,"."
 		num[z] = IngresarValor
-	FinPara
-	
-	
-	
-	Para i = 1 Hasta 5 Con Paso 1
-		
-		suma[i] = avalor[i] + num[i]
 		
 	FinPara
 	
-	Para j =1 Hasta 5 Con Paso 1
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
 		
-		Imprimir suma[j]
+		Imprimir "Arreglo SUMA, posicion ",z,"."
+		suma[z] = IngresarValor
+		
+	FinPara
+	
+	
+	Para i = 0 Hasta 4 Con Paso 1
+		
+		suma[i] = aValor[i] + num[i]
+		Imprimir suma[i]
 		
 	FinPara
 	

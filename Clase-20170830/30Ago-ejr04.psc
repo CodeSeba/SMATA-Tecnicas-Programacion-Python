@@ -3,42 +3,53 @@ Funcion unValor <- IngresarValor
 	Leer unValor
 FinFuncion
 
-Algoritmo Ejercicio3
+Algoritmo Ejercicio4
 	
 	// Ingresar 5 valores enteros en el arreglo 'uno' y
 	// otros 5 en el arreglo 'dos'.
-	// Imprimir los valores encontrados en ambos arreglos.
+	// Imprimir los valores de 'uno' que sean
+	// distintos de 'dos'.
 	
-	Dimension uno[5]
-	Dimension dos[5]
-	flag = 0
 	
-	Para z = 1 Hasta 5 Con Paso 1			// Carga de datos
-		Imprimir "Arreglo uno."
+	Dimension uno[5],dos[5]
+	encontrados = 0
+	
+	
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
+		
+		Imprimir "Arreglo UNO, posicion ",z,"."
 		uno[z] = IngresarValor
-		Imprimir "Arreglo dos."
+		
+	FinPara
+	
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
+		
+		Imprimir "Arreglo DOS, posicion ",z,"."
 		dos[z] = IngresarValor
+		
 	FinPara
 	
 	
-	Para i = 1 Hasta 5 Con Paso 1
+	Para i = 0 Hasta 4 Con Paso 1
 		
-		flag = 0
+		encontrados = 0
 		
-		Para j = 1 Hasta 5 Con Paso 1
+		Para j = 0 Hasta 4 Con Paso 1
 			
 			Si ( uno[i] == dos[j] )
 				
-				flag = 1
+				encontrados = encontrados + 1
 				
 			FinSi
+			
 		FinPara
 		
-		Si ( flag == 0 )
+		Si ( encontrados == 0 )
 			
-			Imprimir "Distinto: ",uno[i]
+			Imprimir "Valor distinto: ",uno[i]
 			
 		FinSi
+		
 	FinPara
 	
 FinAlgoritmo

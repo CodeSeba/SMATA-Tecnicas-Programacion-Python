@@ -11,29 +11,35 @@ Algoritmo Ejercicio1
 	// Ingresar al menos un valor negativo.
 	
 	Dimension vector[5]
+	auxiliar = 0
 	
-	Para z = 1 Hasta 5 Con Paso 1			// Carga de datos
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
+		
 		vector[z] = IngresarValor
+		
 	FinPara
 	
 	
-	
-	Para i = 1 Hasta 4 Con Paso 1
+	Para pos = 0 Hasta 3 Con Paso 1
 		
-		Para j = i+1 Hasta 5 Con Paso 1
+		Para sig = pos+1 Hasta 4 Con Paso 1
 			
-			Si ( vector[i] < vector[j] )
+			Si ( vector[pos] < vector[sig] )
 				
-				auxiliar = vector[i]
-				vector[i] = vector[j]
-				vector[j] = auxiliar
+				auxiliar = vector[pos]
+				vector[pos] = vector[sig]
+				vector[sig] = auxiliar
 				
 			FinSi
+			
 		FinPara
+		
 	FinPara
 	
-	Para i =1 Hasta 5 Con Paso 1
+	Para i =0 Hasta 4 Con Paso 1
+		
 		Imprimir vector[i]
+		
 	FinPara
 	
 FinAlgoritmo

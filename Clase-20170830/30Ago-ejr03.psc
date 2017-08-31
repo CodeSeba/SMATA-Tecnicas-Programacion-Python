@@ -7,28 +7,47 @@ Algoritmo Ejercicio3
 	
 	// Ingresar 5 valores enteros en el arreglo 'uno' y
 	// otros 5 en el arreglo 'dos'.
-	// Imprimir los valores encontrados en ambos arreglos.
+	// Imprimir los valores encontrados (iguales) en ambos arreglos.
 	
-	Dimension uno[5]
-	Dimension dos[5]
+	Dimension uno[5],dos[5]
+	encontrados = 0
+	
+	
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
 		
-	Para z = 1 Hasta 5 Con Paso 1			// Carga de datos
-		Imprimir "Arreglo uno."
+		Imprimir "Arreglo UNO, posicion ",z,"."
 		uno[z] = IngresarValor
-		Imprimir "Arreglo dos."
-		dos[z] = IngresarValor
+		
 	FinPara
 	
-	Para i = 1 Hasta 5 Con Paso 1
+	Para z = 0 Hasta 4 Con Paso 1			// Carga de datos
 		
-		Para j = i Hasta 5 Con Paso 1
+		Imprimir "Arreglo DOS, posicion ",z,"."
+		dos[z] = IngresarValor
+		
+	FinPara
+	
+	
+	Para i = 0 Hasta 4 Con Paso 1
+		
+		encontrados = 0
+		
+		Para j = 0 Hasta 4 Con Paso 1
 			
 			Si ( uno[i] == dos[j] )
 				
-				Imprimir "Repetido: ",uno[i]
+				encontrados = encontrados + 1
 				
 			FinSi
+			
 		FinPara
+		
+		Si ( encontrados > 0 )
+			
+			Imprimir "Valor encontrado: ",uno[i]
+			
+		FinSi
+		
 	FinPara
 	
 FinAlgoritmo
