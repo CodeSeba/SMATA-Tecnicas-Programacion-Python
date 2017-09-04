@@ -13,4 +13,4 @@ else:
 if res == 0:
 	print ( "La devision es exacta" )
 else:
-	print( "La division no es exacta")
+	print( "La division no es exacta" )
