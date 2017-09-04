@@ -8,20 +8,20 @@ n2 = int( input("Ingresar nro 2\n") )
 if n1 == n2 :
 	print( "ERROR, los numeros son iguales." )
 else :
-	if n1 > n2 :
-		print( "El mayor es",n1 )
-		print( "El menor es",n2 )
-	else :
+	if n1 < n2 :
+		print( "El menor es",n1 )
 		print( "El mayor es",n2 )
+	else :
+		print( "El menor es",n2 )
 		print( "El mayor es",n1 )
 		
-# Usando un arreglo y .sort(reverse=True)
-print( "Usando un Arreglo." )
+# Usando un arreglo y .sort() que ordena de forma ascendente.
+print( "\nUsando un Arreglo.\n" )
 
 if n1 == n2 :
 	print( "ERROR, los numeros son iguales." )
 else :
 	a = [n1,n2]
-	a.sort(reverse=True)
-	print( "El mayor es",a[0] )
-	print( "El menor es",a[1] )
+	a.sort()
+	print( "El menor es",a[0] )
+	print( "El mayor es",a[1] )
