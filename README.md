@@ -54,12 +54,12 @@ sudo make install
 
 Ejecutar Python
 ---------------
-En ambos casos luego de instalar Python se debe abrir una consola de comandos y tipear 'python', sin comillas y listo.
+En ambos casos luego de instalar Python se debe abrir una consola de comandos y tipear `python`.
 Estaras dentro del Shell de Python y estara a la espera de ingresos de comandos.
 
 Un ejemplo
 ```python
-print("¡Hola Mundo!")
+>>>print("¡Hola Mundo!")
 ¡Hola Mundo!
 ```
-Para cerrar Python se debe ejecutar `exit()`
+Para cerrar Python se debe ejecutar `exit()`.
