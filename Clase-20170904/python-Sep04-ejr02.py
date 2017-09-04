@@ -11,6 +11,6 @@ else:
 	res =  n1 % n2
 
 if res == 0:
-	print ( "La devision es exacta" )
+	print( "La devision es exacta" )
 else:
 	print( "La division no es exacta" )
