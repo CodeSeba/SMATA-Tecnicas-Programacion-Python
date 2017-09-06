@@ -1,19 +1,19 @@
-# Ingresar por teclado el annio actual y otro annio cualquiera.
-# Imprmir la cantidad de annios transcurridos o la 
-# cantidad de annios que faltan.
+# Ingresar por teclado el año actual y otro año cualquiera.
+# Imprmir la cantidad de años transcurridos o la 
+# cantidad de años que faltan.
 # Si ambos son iguales indicarlo tambien.
 
-print( "Calculo de la diferencia entre dos annios" )
+print( "Calculo de la diferencia entre dos años" )
 
-annio1 = int( input("Ingresar annio 1\n") )
-annio2 = int( input("Ingresar annio 2\n") )
+año1 = int( input("Ingresar año 1\n") )
+año2 = int( input("Ingresar año 2\n") )
 
-resultado = annio1 - annio2
+resultado = año1 - año2
 
 if resultado == 0:
-	print( "Los annios son iguales" )
+	print( "Los años son iguales" )
 elif resultado > 0:
-	print( "Trasncurrieron",resultado,"annios desde",annio2 )
+	print( "En",año1,"trasncurrieron",resultado,"años desde",año2 )
 else:
 	resultado = resultado * -1
-	print( "Faltan",resultado,"annios para",annio2 )
+	print( "Desde",año1,"faltan",resultado,"años hasta",año2 )
