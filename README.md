@@ -63,3 +63,30 @@ Un ejemplo
 ¡Hola Mundo!
 ```
 Para cerrar Python se debe ejecutar `exit()`.
+
+Aclaraciones para Linux
+---
+Para ejecutar el shell de Python se debe tipear `python` si la distribucion que utiliza ya vino instalado por default, estara instalado la version 2.x. Se debe instalara la version 3.x para no tener problemas con el curso. Despues instalar la version 3.x, este no sobreescribe la anterior, sino que se instala con el nombre python3 entonces para ejecutar el shell de Python 3 se debe ejecutar en una terminal con `python3`.
+
+Si se quiere ejecutar archivos `*.py` para tener un mejor control de errores, se debe ejecutar de la siguiente manera
+```
+python3 archivo.py
+```
+
+Sublime Text 3 y Python 3
+---
+Para utilizar el editor de texto Sublime Text 3 y probar el codigo desde adentro se tiene que configurar primero con los siguientes pasos.
+* Ir a `Tools` > `Build System` > `New Build System...`
+* Se creara un nuevo archivo con algunos datos por default.
+* Borrar todos los datos y escribir lo siguiente
+```
+{
+   "cmd": ["gnome-terminal -e 'bash -c \"/usr/bin/python3 -u $file;echo;echo Press ENTER to exit...;read line\"'"],
+   "shell": true
+}
+```
+* Guardar el archivo en el mismo lugar donde aparece por default `~/.config/sublime-text-3/Packages/User/`
+* El nombre del archivo se sugiere que sea `Python3.sublime-build` para que no sobreescriba el default `Python` que es para la version 2.x
+* Listo. Se puede probar con un codigo python pero se debe guardar antes de ejecutar para que no tiere error.
+* Para ejecutar el codigo se debe oprimir `Ctrl+B` y aparecera una ventana de terminal ejecutando el codigo escrito.
+* Cuando termina de ejecutar todo el codigo, aparecera una mensaje `Press ENTER to exit...` que indica que se debe oprimir enter para salir y cerrar la terminal. El mensaje se puede cambiar en el archivo `Python3.sublime-build`.
