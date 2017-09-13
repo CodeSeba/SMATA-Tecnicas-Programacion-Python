@@ -81,7 +81,7 @@ Para utilizar el editor de texto Sublime Text 3 y probar el codigo desde adentro
 * Borrar todos los datos y escribir lo siguiente
 ```
 {
-   "cmd": ["gnome-terminal -e 'bash -c \"/usr/bin/python3 -u $file;echo;echo Press ENTER to exit...;read line\"'"],
+   "cmd": ["gnome-terminal -e 'bash -c \"/usr/local/bin/python3 -u $file;echo;echo Press ENTER to exit...;read line\"'"],
    "shell": true
 }
 ```
