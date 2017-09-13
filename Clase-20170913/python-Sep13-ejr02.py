@@ -3,9 +3,9 @@
 #	Hola Hola Hola
 #	Fin
 
-print("Comienzo")
+print("\nComienzo\n")
 
 for i in range(4) :
 	print("Hola",end=" ")
 
-print("\nFin")
+print("\nFin\n")

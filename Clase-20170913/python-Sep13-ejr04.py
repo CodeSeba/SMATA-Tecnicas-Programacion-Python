@@ -6,9 +6,9 @@
 #	3 x 3 = 6
 #	4 x 4 = 16
 
-print("Comienzo")
+print("\nComienzo\n")
 
 for i in range(5) :
 	print(i,"x",i,"=",i * i)
 
-print("Fin")
+print("\nFin\n")

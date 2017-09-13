@@ -3,7 +3,8 @@
 # Hasta el 12.
 
 nro = int( input("Ingresar número\n") )
-print("---")
+
+print("\nComienzo\n")
 
 factor = 1
 
@@ -19,3 +20,5 @@ print("---")
 
 for i in range(1,13) :
 	print(nro,"x",i,"=",nro * i)
+
+print("\nFin\n")

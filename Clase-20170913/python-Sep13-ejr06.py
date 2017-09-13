@@ -3,10 +3,9 @@
 # de un numero.
 
 nro = int( input("Ingresar número\n") )
-print("---")
 
-print("Comienzo")
+print("\nComienzo\n")
 
 print( "La raiz cuadrada del cubo de",nro,"es",nro**(3/2) )
 
-print("Fin")
+print("\nFin\n")
