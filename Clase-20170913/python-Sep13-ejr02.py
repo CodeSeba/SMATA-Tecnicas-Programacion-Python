@@ -4,6 +4,8 @@
 #	Fin
 
 print("Comienzo")
+
 for i in range(4) :
 	print("Hola",end=" ")
+
 print("\nFin")
