@@ -7,6 +7,6 @@ print("---")
 
 print("Comienzo")
 
-print("La raiz cuadrada del cubo de",nro,"es",nro**(3/2))
+print( "La raiz cuadrada del cubo de",nro,"es",nro**(3/2) )
 
 print("Fin")
