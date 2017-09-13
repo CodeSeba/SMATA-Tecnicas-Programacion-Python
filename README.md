@@ -53,7 +53,7 @@ sudo make install
 ```
 
 Ejecutar Python
----------------
+---
 En ambos casos luego de instalar Python se debe abrir una consola de comandos y tipear `python`.
 Estaras dentro del Shell de Python y estara a la espera de ingresos de comandos.
 
