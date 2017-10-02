@@ -1,5 +1,5 @@
 # Dado un curso de alumnos.
-# Se deben cargar las siguientes datos:
+# Se deben cargar los siguientes datos:
 # -Nombre
 # -Apellido
 # -Nota 1
@@ -174,7 +174,7 @@ for alumno in lista_alumnos :
 print("Lista de Alumnos Promocionados:\n" + lista_promocionados)
 
 print("=" * 60)
-print("Cantidad de Reprebados:",cant_reprobados)
+print("Cantidad de Reprobados:",cant_reprobados)
 print("Cantidad de Mujeres Aprobadas:",cant_mujeresAprobadas)
 print("Cantidad de Alumnos Mujeres:",cant_feme)
 print("Cantidad de Alumnos Hombres:",cant_masc)
