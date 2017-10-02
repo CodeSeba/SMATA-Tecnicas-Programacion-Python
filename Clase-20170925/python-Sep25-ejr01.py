@@ -29,7 +29,7 @@
 # Imprimir salario familiar.
 
 
-MODO_PRUEBA = False
+MODO_PRUEBA = True
 
 if MODO_PRUEBA :
 	nombre = ["Pablo","Ana","Jose","Maria","Tomas"]
