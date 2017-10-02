@@ -29,20 +29,6 @@
 # Imprimir salario familiar.
 
 
-MODO_PRUEBA = True
-
-if MODO_PRUEBA :
-	nombre = ["Pablo","Ana","Jose","Maria","Tomas"]
-	sexo = ["M","F","M","F","M"]
-	horas = [170,200,160,320,250]
-	estadoCivil = ["C","S","D","V","P"]
-	hijos = [6,0,2,3,1]
-	lista_empleados = []
-
-	for i in range(0,5) :
-		lista_datos = [nombre[i],sexo[i],horas[i],estadoCivil[i],hijos[i]]
-		lista_empleados.append(lista_datos)
-
 # Nombres de indices
 nombre = 0
 sexo = 1
@@ -67,19 +53,16 @@ ingresarEstadoCivil = "Ingresar el estado civil del empleado"
 ingresarHijos = "Ingresar la cant. de hijos del empleado"
 
 
-# MODO_PRUEBA es para probar la logica sin las entradas por teclado
-if not MODO_PRUEBA :
-
-	lista_empleados = []
-	for i in range(0,5) :
-		empleado = []
-		empleado.append( input(f"{ingresarNombre} {i+1}\n") )
-		empleado.append( input(f"{ingresarSexo} {i+1}\n") )
-		empleado.append( int(input(f"{ingresarHoras} {i+1}\n")) )
-		empleado.append( input(f"{ingresarEstadoCivil} {i+1}\n") )
-		empleado.append( int(input(f"{ingresarHijos} {i+1}\n")) )
-		lista_empleados.append( empleado )
-		print("-" * 50)
+lista_empleados = []
+for i in range(0,5) :
+	empleado = []
+	empleado.append( input(f"{ingresarNombre} {i+1}\n") )
+	empleado.append( input(f"{ingresarSexo} {i+1}\n") )
+	empleado.append( int(input(f"{ingresarHoras} {i+1}\n")) )
+	empleado.append( input(f"{ingresarEstadoCivil} {i+1}\n") )
+	empleado.append( int(input(f"{ingresarHijos} {i+1}\n")) )
+	lista_empleados.append( empleado )
+	print("-" * 50)
 
 
 print("\nLista de empleados de la empresa")
@@ -116,9 +99,6 @@ for empleado in lista_empleados :
 
 	# D.
 	totalHorasExtras = horasExtras * valorHora * indice_HoraExtra
-
-	if MODO_PRUEBA :
-		print(f"{'>' * 8} Total horas extras: $ {totalHorasExtras:,.2f}".replace(',',' ').replace('.00','.-'))
 	
 	formato_sueldo = f"$ {sueldoBasico + totalHorasExtras:,.2f}".replace(","," ").replace(".00",".-")
 	print( f"Sueldo basico mas horas extras: {formato_sueldo}" )
@@ -126,20 +106,14 @@ for empleado in lista_empleados :
 	# E.
 	if empleado[estadoCivil] == "C" :
 		sueldoFamiliar += conyuge
-		if MODO_PRUEBA :
-			print(f"{'>' * 8} Asignacion conyuge: $ {conyuge:,.2f}".replace(',',' ').replace('.00','.-'))
 
 	# F.
 	for cantidadHijos in range(1,empleado[hijos]+1) :
 
 		if cantidadHijos >= familiaNumerosa :
 			asignacion = asignacion * indice_familiaNumerosa
-			if MODO_PRUEBA :
-				print(f"{'>'*8} Asignacion hijo {cantidadHijos}: $ {asignacion:,.2f}".replace(',',' ').replace('.00','.-'))
 		else :
 			asignacion = asignacionPorHijo
-			if MODO_PRUEBA :
-				print(f"{'>'*8} Asignacion hijo {cantidadHijos}: $ {asignacion:,.2f}".replace(',',' ').replace('.00','.-'))
 
 		sueldoFamiliar += asignacion
 
@@ -147,9 +121,8 @@ for empleado in lista_empleados :
 	formato_sueldo = f"$ {sueldoFamiliar:,.2f}".replace(","," ").replace(".00",".-")
 	print( f"Sueldo familiar: {formato_sueldo}" )
 
-	if MODO_PRUEBA :
-		sueldoBruto = sueldoBasico + totalHorasExtras + sueldoFamiliar
-		formato_sueldo = f"$ {sueldoBruto:,.2f}".replace(","," ").replace(".00",".-")
-		print( f"{'>'*8} Sueldo bruto: {formato_sueldo}" )
+	sueldoBruto = sueldoBasico + totalHorasExtras + sueldoFamiliar
+	formato_sueldo = f"$ {sueldoBruto:,.2f}".replace(","," ").replace(".00",".-")
+	print( f"Sueldo bruto: {formato_sueldo}" )
 
 	print("-" * 50)
