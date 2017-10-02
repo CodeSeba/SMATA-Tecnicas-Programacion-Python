@@ -1,5 +1,5 @@
-# Dado un curso de alumnos. Se deben
-# cargar las siguientes datos:
+# Dado un curso de alumnos.
+# Se deben cargar las siguientes datos:
 # -Nombre
 # -Apellido
 # -Nota 1
@@ -14,25 +14,23 @@
 # si aprobo los tres examenes con nota
 # superior a 7 entonces "Promocionado".
 #
-# A. Indicar la cantidad de alumnos "Reprobados"
-# B. Nombre, Apellido, Promedio de los alumnos "Promocionados"
-# C. Cantidad de mujeres "Aprobadas".
+# A. Indicar la cantidad de alumnos reprobados.
+# B. Nombre, Apellido, Promedio de los alumnos promocionados.
+# C. Cantidad de mujeres aprobadas.
 # D. Cantidad de alumnos discriminado por genero.
 # E. Cantidad de alumnos promocionados.
-# F. Promedio general.
-# G. Porcentaje de alumnos reprobados.
+# F. Calcular Promedio General.
+# G. Calcular Porcentaje de Alumnos Reprobados.
 # H. Nombre y Apellido de los alumnos cuyo promedio
-# sea mayor al promedio general.
+#    sea mayor al promedio general.
 # I. Cantidad de alumnos con promedio igual al
-# promedio general.
+#    promedio general.
 # J. Listado (nombre y apellido) de los alumnos aprobados
-# con mas de 7 en el primer parcial.
+#    con mas de 7 en el primer parcial.
 # K. Cantidad de alumnos que reprobaron en el segundo parcial.
 # L. Nombre de los alumnos con la tercera nota mayor a 4 y menor a 7.
 
-lista_alumnos = []
-datos_alumno = []
-cant_alumnos = 0
+# Nombre de los indices
 nombre = 0
 apellido = 1
 nota1 = 2
@@ -41,6 +39,10 @@ nota3 = 4
 genero = 5
 promedio = 6
 estado = 7
+
+lista_alumnos = []
+datos_alumno = []
+cant_alumnos = 0
 
 # Esto es para pruebas
 lista_alumnos.append(["Jose","Saraza",2,2,2,"Masc"])
@@ -169,28 +171,28 @@ for alumno in lista_alumnos :
 		lista_aprobaron3erParcial += "-" * 60 + "\n"
 
 
-print("Lista de alumnos promocionados:\n" + lista_promocionados)
+print("Lista de Alumnos Promocionados:\n" + lista_promocionados)
 
 print("=" * 60)
 print("Cantidad de Reprebados:",cant_reprobados)
-print("Cantidad de Mujeres Aprobados:",cant_mujeresAprobadas)
+print("Cantidad de Mujeres Aprobadas:",cant_mujeresAprobadas)
 print("Cantidad de Alumnos Mujeres:",cant_feme)
 print("Cantidad de Alumnos Hombres:",cant_masc)
-print("Cantidad de Alumnos promocionados:",cant_promocionados)
+print("Cantidad de Alumnos Promocionados:",cant_promocionados)
 print("Promedio General:",promedioGeneral)
 print("Porcentaje Reprobados:",porcetajeReprobados,"%")
 print("=" * 60 + "\n")
 
-print("Lista de alumnos con mayor promedio general:\n" + lista_mayorPromedioGral)
+print("Lista de Alumnos con mayor promedio general:\n" + lista_mayorPromedioGral)
 
 print("=" * 60)
 print("Cantidad de Alumnos con promedio igual al general:",cant_igualPromedioGral)
 print("=" * 60 + "\n")
 
-print("Lista de alumnos que aprobaron con mas de 7 el 1er parcial:\n" + lista_aprobaron1erParcial)
+print("Lista de Alumnos que aprobaron con mas de 7 el 1er parcial:\n" + lista_aprobaron1erParcial)
 
 print("=" * 60)
 print("Cantidad de Alumnos que reprobaron el 2do parcial:",cant_reprobados2doParcial)
 print("=" * 60 + "\n")
 
-print("Lista de alumnos que aprobaron el 3er parcial entre 4 y 7:\n" + lista_aprobaron3erParcial)
+print("Lista de Alumnos que aprobaron el 3er parcial entre 4 y 7:\n" + lista_aprobaron3erParcial)
