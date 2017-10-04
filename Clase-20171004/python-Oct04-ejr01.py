@@ -17,8 +17,8 @@
 #    2. Editorial
 #    3. Genero
 # C. Autor y Titulo de todos los aquellos
-#    libros que tengan todos sus
-#	 sus libros prestados.
+#    libros que tengan todos sus libros
+#    prestados.
 # D. Cantidad de libros que no tengan
 #    ejemplares para prestar.
 # E. Editoriales (nombres) que tienen
