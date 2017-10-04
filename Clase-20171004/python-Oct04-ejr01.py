@@ -6,12 +6,11 @@
 # -Editorial
 # -Edicion
 # -Tipo de Encuadernacion
-# -Cantidad de total de ejemplares
-#  para prestar
+# -Cantidad de total de ejemplares para prestar
 # -Cantidad de ejemplares prestados
 # -Genero
 #
-# A. Cargar todos los libros
+# A. Cargar todos los libros.
 # B. Imprimir la cantidad de libros
 #    discriminados por:
 #    1. Autor
@@ -27,10 +26,9 @@
 # F. Autores que tienen libros de primera
 #    edicion y genero de Terror.
 
+
 # Nombres de los indices de biblioteca
 libros = 0
-prestados = 1
-noprestados = 2
 
 # Nombres de los indices de los datos del libro
 codigo = 0
@@ -39,24 +37,37 @@ autor = 2
 editorial = 3
 edicion = 4
 encuadernacion = 5
-genero = 6
-estado = 7
+paraPrestar = 6
+prestados = 7
+genero = 8
 
-# biblioteca = [ [lista_libros], cant_prestados, cant_noprestados ]
-biblioteca = []
-lista_libros = []
+# biblioteca = [ [lista_libros], total_prestados, total_noprestados ]
 datos_libro = []
-cant_libros = 0
+lista_libros = []
+biblioteca = []
+
 
 # Esto es para pruebas
-lista_libros.append([1,"100 Años de Soledad","Marquez","Strada","primera","rustica","novela","no prestado"])
-lista_libros.append([2,"Alef","Borges","Santillan","segunda","tapa dura","novela","prestado"])
-lista_libros.append([3,"Sistemas de Informacion","Caseros","Fotocopiadora","unica","no tiene tapa","tecnica","prestado"])
-cant_libros = 3
+datos_libro = [1,"100 Años de Soledad","Marquez","Strada","primera","rustica",10,1,"novela"]
+lista_libros.append(datos_libro)
+datos_libro = [2,"Alef","Borges","Santillan","segunda","tapa dura",20,1,"novela"]
+lista_libros.append(datos_libro)
+datos_libro = [3,"Sistemas de Informacion","Caseros","Fotocopiadora","unica","no tiene tapa",30,1,"tecnica"]
+lista_libros.append(datos_libro)
+datos_libro = [4,"Alef, segunda parte","Borges","Santillan","segunda","tapa dura",40,1,"novela"]
+lista_libros.append(datos_libro)
+datos_libro = [5,"Alef, tercera parte","Borges","Santillan","segunda","tapa dura",10,10,"novela"]
+lista_libros.append(datos_libro)
+datos_libro = [6,"Libro6","Autor6","Editorial6","primera","tapa dura",5,4,"terror"]
+lista_libros.append(datos_libro)
+
 biblioteca.append(lista_libros)
-lista_libros = []
+
+del datos_libro
+del lista_libros
 
 '''
+cant_libros = 0
 print("Ingresar los datos del libro",cant_libros+1)
 input_titulo = input("Ingresar Titulo\n")
 
@@ -67,6 +78,8 @@ while input_titulo != "pepe" :
 	input_editorial = input("Ingresar Editorial\n")
 	input_edicion = input("Ingresar Edicion\n")
 	input_encuadernacion = input("Ingresar Encuadernacion\n")
+	input_paraPrestar = int( input("Ingresar cantidad para Prestar\n") )
+	input_prestados = int( input("Ingresar cantidad de Prestador\n") )
 	input_genero = input("Ingresar Genero\n")
 
 	datos_libro.append(input_codigo)
@@ -78,75 +91,65 @@ while input_titulo != "pepe" :
 	datos_libro.append(input_genero)
 
 	biblioteca.append(datos_libro)
+	del datos_libro
 	cant_libros += 1
-	datos_libro = []
 
 	print("Ingresar los datos del libro",cant_libros+1)
 	input_titulo = input("Ingresar Titulo\n")
 '''
 
-# A.
+
 lista_libros = biblioteca[libros]
-cant_prestados = 0
-cant_noprestados = 0
+
+
+# A.
+total_prestados = sum( libro[prestados] for libro in lista_libros )
+total_noprestados = sum( libro[paraPrestar] - libro[prestados] for libro in lista_libros )
+
+biblioteca.append(total_prestados)
+biblioteca.append(total_noprestados)
+
+
 # B.
-lista_autores = []
-lista_editoriales = []
-lista_generos = []
-cant_libros_autor = 0
-cant_libros_editorial = 0
-cant_libros_genero = 0
+lista_autores = [ libro[autor] for libro in lista_libros ]
+dicc_autores =  { unAutor : lista_autores.count(unAutor) for unAutor in lista_autores }
 
-for libro in lista_libros :
+lista_editoriales = [ libro[editorial] for libro in lista_libros ]
+dicc_editoriales =  { unaEditorial : lista_editoriales.count(unaEditorial) for unaEditorial in lista_editoriales }
 
-	if libro[estado] == "prestado" :
-		cant_prestados += 1
-	else :
-		cant_noprestados += 1
+lista_generos = [ libro[genero] for libro in lista_libros ]
+dicc_generos =  { unGenero : lista_generos.count(unGenero) for unGenero in lista_generos }
 
-	if (libro[autor] in lista_autores) == 0 :
-		lista_autores.append(libro[autor])
+lista_diccs = { "Autor" : dicc_autores, "Editorial" : dicc_editoriales, "Genero" : dicc_generos }
 
-	if (libro[editorial] in lista_editoriales) == 0 :
-		lista_editoriales.append(libro[editorial])
+print("Cantidad de Libros por:\n" + "=" * 50)
 
-	if (libro[genero] in lista_generos) == 0 :
-		lista_generos.append(libro[genero])
+for unDicc in lista_diccs :
+	print( unDicc + "\n" + "-" * 50 )
+	for key, valor in lista_diccs[unDicc].items() :
+		print( key,":",valor )
+	print("\n")
 
 
-biblioteca.append(cant_prestados)
-biblioteca.append(cant_noprestados)
-
-
-for unAutor in lista_autores :
-
-	for libro in lista_libros :
-
-		if libro[autor] == unAutor :
-			cant_libros_autor += 1
-
-	print("Cantidad de libros por autor " + unAutor + ": " + str(cant_libros_autor))
-	cant_libros_autor = 0
-
-for unaEditorial in lista_editoriales :
-
-	for libro in lista_libros :
-
-		if libro[editorial] == unaEditorial :
-			cant_libros_editorial += 1
-
-	print("Cantidad de libros por editorial " + unaEditorial + ": " + str(cant_libros_editorial))
-	cant_libros_editorial = 0
-
-for unGenero in lista_generos :
-
-	for libro in lista_libros :
-
-		if libro[genero] == unGenero :
-			cant_libros_genero += 1
-
-	print("Cantidad de libros por genero " + unGenero + ": " + str(cant_libros_genero))
-	cant_libros_genero = 0
 # C.
-lista_libros_prestados = []
+lista_agotados = [ libro for libro in lista_libros if libro[paraPrestar] - libro[prestados] == 0 ]
+print("Libros que estan todos prestados\n" + "=" * 50)
+for libro in lista_agotados : print( libro[autor] + ", \"" + libro[titulo] + "\"" )
 
+
+# D.
+print("\n" + "=" * 50)
+print( "Cantidad de libros no disponibles:",len(lista_agotados) )
+print("=" * 50)
+
+
+# E.
+lista_rusticos = [ libro[editorial] for libro in lista_libros if libro[encuadernacion] == "rustica" ]
+print("\nLista de Editoriales con tapa rustica" + "\n" + "-" * 50)
+for unaEditorial in lista_rusticos : print(unaEditorial)
+
+
+# F.
+lista_autores_1eraTerror = [ libro[autor] for libro in lista_libros if libro[edicion] == "primera" and libro[genero] == "terror" ]
+print("\nLista de Autores de Terror con primera edicion" + "\n" + "-" * 50)
+for unAutor in lista_autores_1eraTerror : print(unAutor)
