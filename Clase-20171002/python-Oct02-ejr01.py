@@ -45,7 +45,7 @@ datos_alumno = []
 cant_alumnos = 0
 
 # Esto es para pruebas
-lista_alumnos.append(["Jose","Saraza",2,2,2,"Masc"])
+lista_alumnos.append(["Jose","Saraza",6,6,6,"Masc"])
 lista_alumnos.append(["Ana","Salsa",9,9,8,"Feme"])
 lista_alumnos.append(["Pablo","Martillo",7,6,4,"Masc"])
 lista_alumnos.append(["Pepa","Pitt",2,3,3,"Feme"])
@@ -115,8 +115,10 @@ cant_masc = 0
 cant_promocionados = 0
 # F.
 promedioGeneral = acum_promedio / cant_alumnos
+promedioGeneral = round(promedioGeneral,2)
 # G.
 porcetajeReprobados = cant_reprobados * 100 / cant_alumnos
+porcetajeReprobados = round(porcetajeReprobados,2)
 # H.
 lista_mayorPromedioGral = ""
 # I.
@@ -134,7 +136,7 @@ for alumno in lista_alumnos :
 	if alumno[estado] == "Promocionado" :
 		lista_promocionados += "Nombre: " + alumno[nombre] + "\n"
 		lista_promocionados += "Apellido: " + alumno[apellido] + "\n"
-		lista_promocionados += "Promedio: " + str(alumno[promedio]) + "\n"
+		lista_promocionados += "Promedio: " + str(round(alumno[promedio],2)) + "\n"
 		lista_promocionados += "-" * 60 + "\n"
 		cant_promocionados += 1
 		
