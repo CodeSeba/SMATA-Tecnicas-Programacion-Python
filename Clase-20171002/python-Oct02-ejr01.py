@@ -139,7 +139,7 @@ for alumno in lista_alumnos :
 		lista_promocionados += "Promedio: " + str(round(alumno[promedio],2)) + "\n"
 		lista_promocionados += "-" * 60 + "\n"
 		cant_promocionados += 1
-		
+
 
 	if alumno[genero] == "Feme" :
 		cant_feme += 1
