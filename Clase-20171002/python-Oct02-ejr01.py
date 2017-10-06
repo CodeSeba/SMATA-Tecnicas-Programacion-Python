@@ -30,6 +30,7 @@
 # K. Cantidad de alumnos que reprobaron en el segundo parcial.
 # L. Nombre de los alumnos con la tercera nota mayor a 4 y menor a 7.
 
+
 # Nombre de los indices
 nombre = 0
 apellido = 1
@@ -42,18 +43,30 @@ estado = 7
 
 lista_alumnos = []
 datos_alumno = []
-cant_alumnos = 0
 
-# Esto es para pruebas
-lista_alumnos.append(["Jose","Saraza",6,6,6,"Masc"])
-lista_alumnos.append(["Ana","Salsa",9,9,8,"Feme"])
-lista_alumnos.append(["Pablo","Martillo",7,6,4,"Masc"])
-lista_alumnos.append(["Pepa","Pitt",2,3,3,"Feme"])
-lista_alumnos.append(["Tomas","Tomate",2,2,2,"Masc"])
-lista_alumnos.append(["Ariadna","Menendez",10,10,10,"Feme"])
-cant_alumnos = 6
+
+# Datos cargados para pruebas
+lista_alumnos.append( ["Jose","Saraza",6,6,6,"Masc"] )
+lista_alumnos.append( ["Ana","Salsa",9,9,8,"Feme"] )
+lista_alumnos.append( ["Pablo","Martillo",7,6,4,"Masc"] )
+lista_alumnos.append( ["Pepa","Pitt",2,3,3,"Feme"] )
+lista_alumnos.append( ["Tomas","Tomate",2,2,2,"Masc"] )
+lista_alumnos.append( ["Ariadna","Menendez",10,10,10,"Feme"] )
+
+for alumno in lista_alumnos :
+
+	calc_promedio = ( alumno[nota1] + alumno[nota2] + alumno[nota3] ) / 3
+	alumno.append(calc_promedio)
+
+	alumno_estado = "Reprobado" if calc_promedio < 4 else "Aprobado"
+	alumno_estado = "Promocionado" if alumno[nota1] > 7 and alumno[nota2] > 7 and alumno[nota3] > 7 else alumno_estado
+
+	alumno.append(alumno_estado)
+
 
 '''
+# Carga de datos mediante input
+cant_alumnos = 0
 print("Ingresar los datos del alumno",cant_alumnos+1)
 input_nombre = input("Ingresar Nombre\n")
 
@@ -72,129 +85,90 @@ while input_nombre != "pepe" :
 	datos_alumno.append(input_nota3)
 	datos_alumno.append(input_genero)
 
+	calc_promedio = ( datos_alumno[nota1] + datos_alumno[nota2] + datos_alumno[nota3] ) / 3
+	datos_alumno.append(calc_promedio)
+
+	alumno_estado = "Reprobado" if calc_promedio < 4 else "Aprobado"
+	alumno_estado = "Promocionado" if datos_alumno[nota1] > 7 and datos_alumno[nota2] > 7 and datos_alumno[nota3] > 7 else alumno_estado
+	datos_alumno.append(alumno_estado)
+
 	lista_alumnos.append(datos_alumno)
+
 	cant_alumnos += 1
-	datos_alumno = []
+	del datos_alumno
 
 	print("Ingresar los datos del alumno",cant_alumnos+1)
 	input_nombre = input("Ingresar Nombre\n")
 '''
 
+
 # A.
-cant_reprobados = 0
-acum_promedio = 0
-
-for alumno in lista_alumnos :
-
-	calc_promedio = ( alumno[nota1] + alumno[nota2] + alumno[nota3] ) / 3
-	alumno.append(calc_promedio)
-	acum_promedio += calc_promedio 
-
-	if calc_promedio < 4 :
-		alumno_estado = "Reprobado"
-		cant_reprobados += 1
-	else :
-		alumno_estado = "Aprobado"
-
-	if alumno[nota1] > 7 :
-		if alumno[nota2] > 7 :
-			if alumno[nota3] > 7 :
-				alumno_estado = "Promocionado"
-
-	alumno.append(alumno_estado)
-
+cant_reprobados = len( [ alumno for alumno in lista_alumnos if alumno[estado] == "Reprobado" ] )
 
 # B.
-lista_promocionados = ""
+lista_promocionados = [ [ alumno[nombre], alumno[apellido], round(alumno[promedio],2) ] for alumno in lista_alumnos if alumno[estado] == "Promocionado" ]
+
 # C.
-cant_mujeresAprobadas = 0
+cant_mujeresAprobadas = len( [ alumno for alumno in lista_alumnos if alumno[genero] == "Feme" and ( alumno[estado] == "Aprobado" or alumno[estado] == "Promocionado" ) ] )
+
 # D.
-cant_feme = 0
-cant_masc = 0
+cant_feme = len( [ alumno for alumno in lista_alumnos if alumno[genero] == "Feme" ] )
+cant_masc = len( [ alumno for alumno in lista_alumnos if alumno[genero] == "Masc" ] )
+
 # E.
-cant_promocionados = 0
+cant_promocionados = len( lista_promocionados )
+
 # F.
-promedioGeneral = acum_promedio / cant_alumnos
-promedioGeneral = round(promedioGeneral,2)
+cant_alumnos = len( lista_alumnos )
+acum_promedio = sum( [ alumno[promedio] for alumno in lista_alumnos ] )
+promedioGeneral = round( acum_promedio / cant_alumnos, 2 )
+
 # G.
-porcetajeReprobados = cant_reprobados * 100 / cant_alumnos
-porcetajeReprobados = round(porcetajeReprobados,2)
+porcetajeReprobados = round( cant_reprobados * 100 / cant_alumnos, 2 )
+
 # H.
-lista_mayorPromedioGral = ""
+lista_mayorPromedioGral = [ [ alumno[nombre], alumno[apellido] ] for alumno in lista_alumnos if alumno[promedio] > promedioGeneral ]
+
 # I.
-cant_igualPromedioGral = 0
+cant_igualPromedioGral = len( [ alumno for alumno in lista_alumnos if alumno[promedio] == promedioGeneral ] )
+
 # J.
-lista_aprobaron1erParcial = ""
+lista_aprobaron1erParcial = [ [ alumno[nombre], alumno[apellido] ] for alumno in lista_alumnos if alumno[nota1] > 7 ]
+
 # K.
-cant_reprobados2doParcial = 0
+cant_reprobados2doParcial = len( [ alumno for alumno in lista_alumnos if alumno[nota2] < 4 ] )
+
 # L.
-lista_aprobaron3erParcial = ""
+lista_aprobaron3erParcial = [ alumno[nombre] for alumno in lista_alumnos if alumno[nota1] in range(4,8) ]
 
 
-for alumno in lista_alumnos :
-	
-	if alumno[estado] == "Promocionado" :
-		lista_promocionados += "Nombre: " + alumno[nombre] + "\n"
-		lista_promocionados += "Apellido: " + alumno[apellido] + "\n"
-		lista_promocionados += "Promedio: " + str(round(alumno[promedio],2)) + "\n"
-		lista_promocionados += "-" * 60 + "\n"
-		cant_promocionados += 1
+# Impresion de todos los resultados
+tab = " " * 4
+print("Cantidad de alumnos reprobados:",cant_reprobados,"\n")
 
+print("Lista de alumnos promocionados\n" + "-" * 50)
+for alumno in lista_promocionados :
+	print( "Nombre: " + alumno[0] + tab + "Apellido: " + alumno[1] + tab + "Promedio: " + str(alumno[2]) )
 
-	if alumno[genero] == "Feme" :
-		cant_feme += 1
+print("\nCantidad de mujeres aprobadas:",cant_mujeresAprobadas,"\n")
+print("Cantidad de mujeres:",cant_feme,"\n")
+print("Cantidad de hombre:",cant_masc,"\n")
+print("Cantidad de alumnos promocionados:",cant_promocionados,"\n")
+print("Promedio General:",round(promedioGeneral,2),"\n")
+print("Porcentaje de Reprobados:",round(porcetajeReprobados,2),"%\n")
 
-		if alumno[estado] == "Aprobado" or alumno[estado] == "Promocionado" :
-			cant_mujeresAprobadas += 1
+print("Lista de alumnos con mayor promedio general\n" + "-" * 50)
+for alumno in lista_mayorPromedioGral :
+	print( "Nombre: " + alumno[0] + tab + "Apellido: " + alumno[1] + tab )
 
-	else :
-		cant_masc += 1
+print("\nCantidad de alumnos con igual promedio que el promedio general:",cant_igualPromedioGral,"\n")
 
+print("Lista de alumnos que aprobaron el 1er parcial\n" + "-" * 50)
+for alumno in lista_aprobaron1erParcial :
+	print( "Nombre: " + alumno[0] + tab + "Apellido: " + alumno[1] + tab )
 
-	if alumno[promedio] > promedioGeneral :
-		lista_mayorPromedioGral += "Nombre: " + alumno[nombre] + "\n"
-		lista_mayorPromedioGral += "Apellido: " + alumno[apellido] + "\n"
-		lista_mayorPromedioGral += "-" * 60 + "\n"
+print("\nCantidad de alumnos que reprobaron el 2do parcial:",cant_reprobados2doParcial,"\n")
 
-	elif alumno[promedio] == promedioGeneral :
-		cant_igualPromedioGral += 1
-
-
-	if alumno[nota1] > 7 :
-		lista_aprobaron1erParcial += "Nombre: " + alumno[nombre] + "\n"
-		lista_aprobaron1erParcial += "Apellido: " + alumno[apellido] + "\n"
-		lista_aprobaron1erParcial += "-" * 60 + "\n"
-
-	if alumno[nota2] < 4 :
-		cant_reprobados2doParcial += 1
-
-	if alumno[nota3] > 4 and alumno[nota3] < 7 :
-		lista_aprobaron3erParcial += "Nombre: " + alumno[nombre] + "\n"
-		lista_aprobaron3erParcial += "-" * 60 + "\n"
-
-
-print("Lista de Alumnos Promocionados:\n" + lista_promocionados)
-
-print("=" * 60)
-print("Cantidad de Reprobados:",cant_reprobados)
-print("Cantidad de Mujeres Aprobadas:",cant_mujeresAprobadas)
-print("Cantidad de Alumnos Mujeres:",cant_feme)
-print("Cantidad de Alumnos Hombres:",cant_masc)
-print("Cantidad de Alumnos Promocionados:",cant_promocionados)
-print("Promedio General:",promedioGeneral)
-print("Porcentaje Reprobados:",porcetajeReprobados,"%")
-print("=" * 60 + "\n")
-
-print("Lista de Alumnos con mayor promedio general:\n" + lista_mayorPromedioGral)
-
-print("=" * 60)
-print("Cantidad de Alumnos con promedio igual al general:",cant_igualPromedioGral)
-print("=" * 60 + "\n")
-
-print("Lista de Alumnos que aprobaron con mas de 7 el 1er parcial:\n" + lista_aprobaron1erParcial)
-
-print("=" * 60)
-print("Cantidad de Alumnos que reprobaron el 2do parcial:",cant_reprobados2doParcial)
-print("=" * 60 + "\n")
-
-print("Lista de Alumnos que aprobaron el 3er parcial entre 4 y 7:\n" + lista_aprobaron3erParcial)
+print("Lista de alumnos que aprobaron el 3er parcial\n" + "-" * 50)
+for unNombre in lista_aprobaron3erParcial :
+	print( "Nombre: " + unNombre )

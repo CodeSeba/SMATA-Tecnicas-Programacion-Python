@@ -46,27 +46,27 @@ datos_libro = []
 lista_libros = []
 biblioteca = []
 
-
-# Esto es para pruebas
-datos_libro = [1,"100 Años de Soledad","Marquez","Strada","primera","rustica",10,1,"novela"]
-lista_libros.append(datos_libro)
-datos_libro = [2,"Alef","Borges","Santillan","segunda","tapa dura",20,1,"novela"]
-lista_libros.append(datos_libro)
-datos_libro = [3,"Sistemas de Informacion","Caseros","Fotocopiadora","unica","no tiene tapa",30,1,"tecnica"]
-lista_libros.append(datos_libro)
-datos_libro = [4,"Alef, segunda parte","Borges","Santillan","segunda","tapa dura",40,1,"novela"]
-lista_libros.append(datos_libro)
-datos_libro = [5,"Alef, tercera parte","Borges","Santillan","segunda","tapa dura",10,10,"novela"]
-lista_libros.append(datos_libro)
-datos_libro = [6,"Libro6","Autor6","Editorial6","primera","tapa dura",5,4,"terror"]
-lista_libros.append(datos_libro)
+# Datos cargados para pruebas
+lista_libros = \
+	[
+		[1,"100 Años de Soledad","Gabriel García Márquez","Strada","primera","rustica",5,1,"novela"],
+		[2,"Alef","Borges","Santillan","segunda","dura",4,2,"novela"],
+		[3,"Aura","Carlos Fuentes","Norma","primera","blanda",3,3,"terror"],
+		[4,"Don Quijote de La Mancha I","Miguel de Cervantes","Anaya","primera","rustica",2,1,"caballeresco"],
+		[5,"Don Quijote de La Mancha II","Miguel de Cervantes","Anaya","segunda","rustica",1,1,"caballeresco"],
+		[6,"Historias de Nueva Orleans","William Faulkner","Alfaguara","cuarta","blanda",5,2,"novela"],
+		[7,"El principito","Antoine Saint-Exupery","Andina","primera","dura",4,3,"aventura"],
+		[8,"El príncipe","Maquiavelo","S.M.","segunda","blanda",3,1,"político"],
+		[9,"Diplomacia","Henry Kissinger","S.M.","tercera","dura",2,2,"político"],
+		[10,"Doce cuentos peregrinos","Gabriel García Márquez","Debolsillo","primera","blanda",1,1,"terror"],
+		[11,"El Último Emperador","Pu-Yi","Caralt","primera","rustica",5,3,"autobiografia"],
+		[12,"Fortunata y Jacinta","Pérez Galdós","Plaza & Janés","sexta","blanda",4,4,"novela"]
+	]
 
 biblioteca.append(lista_libros)
 
-del datos_libro
-del lista_libros
-
 '''
+# Carga de datos mediante imput
 cant_libros = 0
 print("Ingresar los datos del libro",cant_libros+1)
 input_titulo = input("Ingresar Titulo\n")
@@ -90,14 +90,18 @@ while input_titulo != "pepe" :
 	datos_libro.append(input_encuadernacion)
 	datos_libro.append(input_genero)
 
-	biblioteca.append(datos_libro)
+	lista_libros.append(datos_libro)
+
 	del datos_libro
 	cant_libros += 1
 
 	print("Ingresar los datos del libro",cant_libros+1)
 	input_titulo = input("Ingresar Titulo\n")
+
+biblioteca.append(lista_libros)
 '''
 
+del lista_libros
 
 lista_libros = biblioteca[libros]
 
@@ -106,46 +110,39 @@ lista_libros = biblioteca[libros]
 total_prestados = sum( libro[prestados] for libro in lista_libros )
 total_noprestados = sum( libro[paraPrestar] - libro[prestados] for libro in lista_libros )
 
-biblioteca.append(total_prestados)
-biblioteca.append(total_noprestados)
+biblioteca.extend( [total_prestados,total_noprestados] )
 
 
 # B.
-lista_autores = [ libro[autor] for libro in lista_libros ]
-dicc_autores =  { unAutor : lista_autores.count(unAutor) for unAutor in lista_autores }
+lista_diccs = []
 
-lista_editoriales = [ libro[editorial] for libro in lista_libros ]
-dicc_editoriales =  { unaEditorial : lista_editoriales.count(unaEditorial) for unaEditorial in lista_editoriales }
+for item in [ autor, editorial, genero ] :
+	lista_items = [ libro[item] for libro in lista_libros ]
+	dicc_items  = { unItem : lista_items.count(unItem) for unItem in lista_items }
+	lista_diccs.append(dicc_items)
+	del dicc_items
 
-lista_generos = [ libro[genero] for libro in lista_libros ]
-dicc_generos =  { unGenero : lista_generos.count(unGenero) for unGenero in lista_generos }
+items = ["Autor","Editorial","Genero"]
 
-lista_diccs = { "Autor" : dicc_autores, "Editorial" : dicc_editoriales, "Genero" : dicc_generos }
-
-print("Cantidad de Libros por:\n" + "=" * 50)
-
-for unDicc in lista_diccs :
-	print( unDicc + "\n" + "-" * 50 )
-	for key, valor in lista_diccs[unDicc].items() :
-		print( key,":",valor )
-	print("\n")
+for i in range(0,3) :
+	print( "\n" + "Libros por " + items[i] + "\n" + "-" * 50 )
+	for key, valor in lista_diccs[i].items() : print( key,":",valor )
 
 
 # C.
 lista_agotados = [ libro for libro in lista_libros if libro[paraPrestar] - libro[prestados] == 0 ]
-print("Libros que estan todos prestados\n" + "=" * 50)
+print( "\nLibros que estan todos prestados\n" + "=" * 50 )
 for libro in lista_agotados : print( libro[autor] + ", \"" + libro[titulo] + "\"" )
 
 
 # D.
-print("\n" + "=" * 50)
-print( "Cantidad de libros no disponibles:",len(lista_agotados) )
-print("=" * 50)
+print( "\nCantidad de libros no disponibles:",len(lista_agotados) )
+print( "=" * 50 )
 
 
 # E.
-lista_rusticos = [ libro[editorial] for libro in lista_libros if libro[encuadernacion] == "rustica" ]
-print("\nLista de Editoriales con tapa rustica" + "\n" + "-" * 50)
+lista_rusticos = { libro[editorial] : "" for libro in lista_libros if libro[encuadernacion] == "rustica" }
+print( "\nLista de Editoriales con tapa rustica\n" + "-" * 50 )
 for unaEditorial in lista_rusticos : print(unaEditorial)
 
 
