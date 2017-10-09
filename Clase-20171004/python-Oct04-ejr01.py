@@ -36,7 +36,7 @@ titulo = 1
 autor = 2
 editorial = 3
 edicion = 4
-encuadernacion = 5
+tapa = 5
 paraPrestar = 6
 prestados = 7
 genero = 8
@@ -77,7 +77,7 @@ while input_titulo != "pepe" :
 	input_autor = input("Ingresar Autor\n")
 	input_editorial = input("Ingresar Editorial\n")
 	input_edicion = input("Ingresar Edicion\n")
-	input_encuadernacion = input("Ingresar Encuadernacion\n")
+	input_tapa = input("Ingresar Encuadernacion\n")
 	input_paraPrestar = int( input("Ingresar cantidad para Prestar\n") )
 	input_prestados = int( input("Ingresar cantidad de Prestador\n") )
 	input_genero = input("Ingresar Genero\n")
@@ -87,7 +87,7 @@ while input_titulo != "pepe" :
 	datos_libro.append(input_autor)
 	datos_libro.append(input_editorial)
 	datos_libro.append(input_edicion)
-	datos_libro.append(input_encuadernacion)
+	datos_libro.append(input_tapa)
 	datos_libro.append(input_genero)
 
 	lista_libros.append(datos_libro)
@@ -141,7 +141,7 @@ print( "=" * 50 )
 
 
 # E.
-lista_rusticos = { libro[editorial] : "" for libro in lista_libros if libro[encuadernacion] == "rustica" }
+lista_rusticos = { libro[editorial] : "" for libro in lista_libros if libro[tapa] == "rustica" }
 print( "\nLista de Editoriales con tapa rustica\n" + "-" * 50 )
 for unaEditorial in lista_rusticos : print(unaEditorial)
 
