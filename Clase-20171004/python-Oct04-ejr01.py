@@ -42,6 +42,7 @@ prestados = 7
 genero = 8
 
 # biblioteca = [ [lista_libros], total_prestados, total_noprestados ]
+# lista_libros = [ [codigo,titulo,autor,editorial,edicion,tapa,paraPrestar,prestados,genero] ]
 datos_libro = []
 lista_libros = []
 biblioteca = []
