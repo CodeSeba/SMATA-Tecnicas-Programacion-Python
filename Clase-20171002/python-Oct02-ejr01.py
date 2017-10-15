@@ -55,7 +55,7 @@ lista_alumnos.append( ["Ariadna","Menendez",10,10,10,"Feme"] )
 
 for alumno in lista_alumnos :
 
-	calc_promedio = ( alumno[nota1] + alumno[nota2] + alumno[nota3] ) / 3
+	calc_promedio = ( alumno[nota1] + alumno[nota2] + alumno[nota3] ) // 3
 	alumno.append(calc_promedio)
 
 	alumno_estado = "Reprobado" if calc_promedio < 4 else "Aprobado"
@@ -121,10 +121,10 @@ cant_promocionados = len( lista_promocionados )
 # F.
 cant_alumnos = len( lista_alumnos )
 acum_promedio = sum( [ alumno[promedio] for alumno in lista_alumnos ] )
-promedioGeneral = round( acum_promedio / cant_alumnos, 2 )
+promedioGeneral = acum_promedio // cant_alumnos
 
 # G.
-porcetajeReprobados = round( cant_reprobados * 100 / cant_alumnos, 2 )
+porcetajeReprobados = cant_reprobados * 100 // cant_alumnos
 
 # H.
 lista_mayorPromedioGral = [ [ alumno[nombre], alumno[apellido] ] for alumno in lista_alumnos if alumno[promedio] > promedioGeneral ]
@@ -148,14 +148,14 @@ print("Cantidad de alumnos reprobados:",cant_reprobados,"\n")
 
 print("Lista de alumnos promocionados\n" + "-" * 50)
 for alumno in lista_promocionados :
-	print( "Nombre: " + alumno[0] + tab + "Apellido: " + alumno[1] + tab + "Promedio: " + str(alumno[2]) )
+	print( "Nombre: " + alumno[0] + tab + "Apellido: " + alumno[1] + tab + "Promedio:",alumno[2] )
 
 print("\nCantidad de mujeres aprobadas:",cant_mujeresAprobadas,"\n")
 print("Cantidad de mujeres:",cant_feme,"\n")
 print("Cantidad de hombre:",cant_masc,"\n")
 print("Cantidad de alumnos promocionados:",cant_promocionados,"\n")
-print("Promedio General:",round(promedioGeneral,2),"\n")
-print("Porcentaje de Reprobados:",round(porcetajeReprobados,2),"%\n")
+print("Promedio General:",promedioGeneral,"\n")
+print("Porcentaje de Reprobados:",porcetajeReprobados,"%\n")
 
 print("Lista de alumnos con mayor promedio general\n" + "-" * 50)
 for alumno in lista_mayorPromedioGral :
@@ -169,6 +169,6 @@ for alumno in lista_aprobaron1erParcial :
 
 print("\nCantidad de alumnos que reprobaron el 2do parcial:",cant_reprobados2doParcial,"\n")
 
-print("Lista de alumnos que aprobaron el 3er parcial\n" + "-" * 50)
+print("Lista de alumnos que aprobaron el 3er parcial entre 4 y 7\n" + "-" * 50)
 for unNombre in lista_aprobaron3erParcial :
 	print( "Nombre: " + unNombre )

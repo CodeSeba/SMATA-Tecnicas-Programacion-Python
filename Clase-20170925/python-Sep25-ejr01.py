@@ -46,83 +46,100 @@ familiaNumerosa = 3
 indice_familiaNumerosa = 1.4
 
 # Mensajes de ingresos
-ingresarNombre = "Ingresar el nombre del empleado"
-ingresarSexo = "Ingresar el sexo del empleado"
-ingresarHoras = "Ingresar la cant. de horas trabajadas del empleado"
-ingresarEstadoCivil = "Ingresar el estado civil del empleado"
-ingresarHijos = "Ingresar la cant. de hijos del empleado"
+ingresarNombre = "Ingresar el nombre del empleado "
+ingresarSexo = "Ingresar el sexo del empleado "
+ingresarHoras = "Ingresar la cant. de horas trabajadas del empleado "
+ingresarEstadoCivil = "Ingresar el estado civil del empleado "
+ingresarHijos = "Ingresar la cant. de hijos del empleado "
 
-
+#lista_empleados = [ [Nombre,Sexo,Horas,EstadoCivil,Hijos] ]
 lista_empleados = []
+datos_empleado = []
+
+
+#Datos cargados para pruebas
+lista_empleados.append( ["Pablo","M",170,"C",6] )
+lista_empleados.append( ["Ana","F",200,"S",0] )
+lista_empleados.append( ["Jose","M",160,"D",2] )
+lista_empleados.append( ["Maria","F",320,"V",3] )
+lista_empleados.append( ["Tomas","M",250,"P",1] )
+
+'''
+#Datos cargados mediante input
 for i in range(0,5) :
-	empleado = []
-	empleado.append( input(f"{ingresarNombre} {i+1}\n") )
-	empleado.append( input(f"{ingresarSexo} {i+1}\n") )
-	empleado.append( int(input(f"{ingresarHoras} {i+1}\n")) )
-	empleado.append( input(f"{ingresarEstadoCivil} {i+1}\n") )
-	empleado.append( int(input(f"{ingresarHijos} {i+1}\n")) )
-	lista_empleados.append( empleado )
+	nro = str( i+1 )
+	datos_empleado.append( input(ingresarNombre + nro + "\n") )
+	datos_empleado.append( input(ingresarSexo + nro + "\n") )
+	datos_empleado.append( int(input(ingresarHoras + nro + "\n")) )
+	datos_empleado.append( input(ingresarEstadoCivil + nro + "\n") )
+	datos_empleado.append( int(input(ingresarHijos + nro + "\n")) )
 	print("-" * 50)
+
+	lista_empleados.append( datos_empleado )
+	datos_empleado[:] = []
+'''
+
+
+# formato_moneda() es un metodo que da formato a un nro a formato moneda
+def formato_moneda(unNro) :
+	unNro = format(unNro,",.2f")
+	unNro = unNro.replace(".",",")
+	unNro = unNro.replace(",",".",unNro.count(",")-1)
+	unNro = unNro.replace(",00",",-")
+	unNro = "$ " + unNro
+	return unNro
 
 
 print("\nLista de empleados de la empresa")
 print("=" * 50)
 
-# Como foreach en Java, seria "por cada empleado de la lista lista_empleados"
+# Por cada empleado de la lista lista_empleados
 for empleado in lista_empleados :
 	
-	sueldoBasico = 0
 	horasExtras = 0
-	sueldoFamiliar = 0
-
-	formato_sueldo = ''
 	totalHorasExtras = 0
-	asignacion = 0
 	cantidadHijos = 0
+	asignacion = 0
+
+	sueldoBasico = 0
+	sueldoFamiliar = 0
 	sueldoBruto = 0
 
 	# A.
-	print(f"Nombre: {empleado[nombre]}")
-	print(f"Genero: {empleado[sexo]}")
-	print(f"Horas trabajadas: {empleado[horas]}")
+	print( "Nombre: " + empleado[nombre] )
+	print( "Genero: " + empleado[sexo] )
+	print( "Horas trabajadas: ", empleado[horas] )
 
 	# B.
 	sueldoBasico = empleado[horas] * valorHora
-
-	formato_sueldo = f"$ {sueldoBasico:,.2f}".replace(","," ").replace (".00",".-")
-	print( f"Sueldo basico: {formato_sueldo}" )
+	print( "Sueldo basico: " + formato_moneda(sueldoBasico) )
 
 	# C.
 	horasExtras = empleado[horas] - horarioNormal
-
-	print(f"Horas extras: {horasExtras}")
+	print( "Horas extras:",horasExtras )
 
 	# D.
 	totalHorasExtras = horasExtras * valorHora * indice_HoraExtra
-	
-	formato_sueldo = f"$ {sueldoBasico + totalHorasExtras:,.2f}".replace(","," ").replace(".00",".-")
-	print( f"Sueldo basico mas horas extras: {formato_sueldo}" )
+	print( "Sueldo basico mas horas extras: " + formato_moneda(sueldoBasico + totalHorasExtras) )
 
 	# E.
 	if empleado[estadoCivil] == "C" :
 		sueldoFamiliar += conyuge
 
 	# F.
-	for cantidadHijos in range(1,empleado[hijos]+1) :
+	for cantidadHijos in range( 1, empleado[hijos] + 1 ) :
 
-		if cantidadHijos >= familiaNumerosa :
-			asignacion = asignacion * indice_familiaNumerosa
-		else :
+		if cantidadHijos < familiaNumerosa :
 			asignacion = asignacionPorHijo
+		else :
+			asignacion = asignacion * indice_familiaNumerosa
 
 		sueldoFamiliar += asignacion
 
 	# G.
-	formato_sueldo = f"$ {sueldoFamiliar:,.2f}".replace(","," ").replace(".00",".-")
-	print( f"Sueldo familiar: {formato_sueldo}" )
+	print( "Sueldo familiar: " + formato_moneda(sueldoFamiliar) )
 
 	sueldoBruto = sueldoBasico + totalHorasExtras + sueldoFamiliar
-	formato_sueldo = f"$ {sueldoBruto:,.2f}".replace(","," ").replace(".00",".-")
-	print( f"Sueldo bruto: {formato_sueldo}" )
+	print( "Sueldo bruto: " + formato_moneda(sueldoBruto) )
 
 	print("-" * 50)
