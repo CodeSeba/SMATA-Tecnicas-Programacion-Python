@@ -87,17 +87,19 @@ while input_nombre != "pepe" :
 	datos_alumno.append(input_nota3)
 	datos_alumno.append(input_genero)
 
-	calc_promedio = ( datos_alumno[nota1] + datos_alumno[nota2] + datos_alumno[nota3] ) / 3
-	datos_alumno.append(calc_promedio)
-
+	alumno_notas = [ alumno[nota1],alumno[nota2],alumno[nota3] ]
+	calc_promedio = sum( alumno_notas ) // 3
+	alumno.append(calc_promedio)
+	
 	alumno_estado = "Reprobado" if calc_promedio < 4 else "Aprobado"
-	alumno_estado = "Promocionado" if datos_alumno[nota1] > 7 and datos_alumno[nota2] > 7 and datos_alumno[nota3] > 7 else alumno_estado
+	alumno_estado = "Promocionado" if all(nota > 7 for nota in alumno_notas) else alumno_estado
+		
 	datos_alumno.append(alumno_estado)
-
 	lista_alumnos.append(datos_alumno)
 
 	cant_alumnos += 1
-	del datos_alumno
+	alumno_notas[:] = []
+	datos_alumno[:] = []
 
 	print("Ingresar los datos del alumno",cant_alumnos+1)
 	input_nombre = input("Ingresar Nombre\n")
