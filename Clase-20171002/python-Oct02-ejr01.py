@@ -55,13 +55,15 @@ lista_alumnos.append( ["Ariadna","Menendez",10,10,10,"Feme"] )
 
 for alumno in lista_alumnos :
 
-	calc_promedio = ( alumno[nota1] + alumno[nota2] + alumno[nota3] ) // 3
+	alumno_notas = [ alumno[nota1],alumno[nota2],alumno[nota3] ]
+	calc_promedio = sum( alumno_notas ) // 3
 	alumno.append(calc_promedio)
 
 	alumno_estado = "Reprobado" if calc_promedio < 4 else "Aprobado"
-	alumno_estado = "Promocionado" if alumno[nota1] > 7 and alumno[nota2] > 7 and alumno[nota3] > 7 else alumno_estado
+	alumno_estado = "Promocionado" if all(nota > 7 for nota in alumno_notas) else alumno_estado
 
 	alumno.append(alumno_estado)
+	alumno_notas[:] = []
 
 
 '''
@@ -106,7 +108,7 @@ while input_nombre != "pepe" :
 cant_reprobados = len( [ alumno for alumno in lista_alumnos if alumno[estado] == "Reprobado" ] )
 
 # B.
-lista_promocionados = [ [ alumno[nombre], alumno[apellido], round(alumno[promedio],2) ] for alumno in lista_alumnos if alumno[estado] == "Promocionado" ]
+lista_promocionados = [ [ alumno[nombre], alumno[apellido], alumno[promedio] ] for alumno in lista_alumnos if alumno[estado] == "Promocionado" ]
 
 # C.
 cant_mujeresAprobadas = len( [ alumno for alumno in lista_alumnos if alumno[genero] == "Feme" and ( alumno[estado] == "Aprobado" or alumno[estado] == "Promocionado" ) ] )
