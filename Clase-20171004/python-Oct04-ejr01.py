@@ -67,7 +67,7 @@ lista_libros = \
 biblioteca.append(lista_libros)
 
 '''
-# Carga de datos mediante imput
+# Carga de datos mediante input
 cant_libros = 0
 print("Ingresar los datos del libro",cant_libros+1)
 input_titulo = input("Ingresar Titulo\n")
