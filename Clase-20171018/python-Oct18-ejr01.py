@@ -1,6 +1,33 @@
+# Se realiza la inscripcion de socios en un club.
+# La carga de datos finaliza cuando se ingresa
+# como nombre "pepe".
 #
+# Los datos a ingresar son:
+# -Nombre
+# -Apellido
+# -Edad
+# -Sexo
+# -Deporte
 #
+# Los deportes son:
+# -Futbol
+# -Hockey
+# -Handball
+# -Tenis
+# -Natacion
 #
+# Para calcular la Categoria se usa
+# la siguiente tabla:
+# -Menor - 0 a 3 años.
+# -Infantil - 3 a 6 años.
+# -PreMini - 6 a 9 años.
+# -Mini - 9 a 12 años.
+# -Cadete - 12 a 15 años.
+# -Juvenil - 15 a 18 años.
+# -Activo - 18 a 60 años.
+# -Vitalicio - Mayores a 60 años.
+#
+# Imprimir Nombre, Categoria y Deporte.
 
 
 # Nombre de los indices
