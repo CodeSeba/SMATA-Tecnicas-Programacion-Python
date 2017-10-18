@@ -40,11 +40,11 @@ categoria = 5
 
 '''
 # Carga de datos mediante input
-datos_inscripto = []
-lista_inscriptos = []
-cant_inscriptos = 0
+datos_socio = []
+lista_socios = []
+cant_socios = 0
 
-print("Ingresar los datos del inscripto",cant_inscriptos+1)
+print("Ingresar los datos del socio",cant_socios+1)
 input_nombre = input("Ingresar Nombre\n")
 
 while input_nombre != "pepe" :
@@ -54,24 +54,24 @@ while input_nombre != "pepe" :
 	input_sexo = input("Ingresar Genero\n")
 	input_deporte = input("Ingresar Deporte\n")
 
-	datos_inscripto.append(input_nombre)
-	datos_inscripto.append(input_apellido)
-	datos_inscripto.append(input_edad)
-	datos_inscripto.append(input_sexo)
-	datos_inscripto.append(input_deporte)
+	datos_socio.append(input_nombre)
+	datos_socio.append(input_apellido)
+	datos_socio.append(input_edad)
+	datos_socio.append(input_sexo)
+	datos_socio.append(input_deporte)
 	
-	lista_inscriptos.append(datos_inscripto)
+	lista_socios.append(datos_socio)
 
-	datos_inscripto = []
-	cant_inscriptos += 1
+	datos_socio = []
+	cant_socios += 1
 	print("-"*50)
 
-	print("Ingresar los datos del inscripto",cant_inscriptos+1)
+	print("Ingresar los datos del socio",cant_socios+1)
 	input_nombre = input("Ingresar Nombre\n")
 '''
 
 # Carga de datos para pruebas
-lista_inscriptos = \
+lista_socios = \
 	[
 		["Gregoire","Kropach",3,"Masculino","Hockey"],
 		["Braden","MacDavitt",5,"Masculino","Futbol"],
@@ -87,34 +87,34 @@ lista_inscriptos = \
 		["Brooky","Espinheira",9,"Femenino","Tenis"]
 	]
 
-for unInscripto in lista_inscriptos :
+for unSocio in lista_socios :
 	
-	if unInscripto[edad] in range(0,3) :
+	if unSocio[edad] in range(0,3) :
 		unaCategoria = "Menor"
-	elif unInscripto[edad] in range(3,6) :
+	elif unSocio[edad] in range(3,6) :
 		unaCategoria = "Infantil"
-	elif unInscripto[edad] in range(6,9) :
+	elif unSocio[edad] in range(6,9) :
 		unaCategoria = "PreMini"
-	elif unInscripto[edad] in range(9,12) :
+	elif unSocio[edad] in range(9,12) :
 		unaCategoria = "Mini"
-	elif unInscripto[edad] in range(12,15) :
+	elif unSocio[edad] in range(12,15) :
 		unaCategoria = "Cadete"
-	elif unInscripto[edad] in range(15,18) :
+	elif unSocio[edad] in range(15,18) :
 		unaCategoria = "Juvenil"
-	elif unInscripto[edad] in range(18,60) :
+	elif unSocio[edad] in range(18,60) :
 		unaCategoria = "Activo"
-	elif unInscripto[edad] >= 60 :
+	elif unSocio[edad] >= 60 :
 		unaCategoria = "Vitalicio"
 
-	unInscripto.append(unaCategoria)
+	unSocio.append(unaCategoria)
 
 
-print("Lista de Inscriptos")
+print("Lista de socios")
 print("="*50)
 print("")
 
-for unInscripto in lista_inscriptos :
-	print("Nombre: " + unInscripto[nombre])
-	print("Categoria: " + unInscripto[categoria])
-	print("Deporte: " + unInscripto[deporte])
+for unSocio in lista_socios :
+	print("Nombre: " + unSocio[nombre])
+	print("Categoria: " + unSocio[categoria])
+	print("Deporte: " + unSocio[deporte])
 	print("-"*50)
