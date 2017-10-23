@@ -27,7 +27,23 @@
 # -Activo - 18 a 60 años.
 # -Vitalicio - Mayores a 60 años.
 #
-# Imprimir Nombre, Categoria y Deporte.
+# 1. Imprimir Nombre, Categoria y Deporte.
+
+# (Ejercicios Agregados el 23 de Oct.)
+# 2. Total de socios con categoria "Activo".
+# 3. Total de socios con categoria "Juvenil" y sexo "Femenino".
+# 4. Total de socios con categoria "Mini", sexo "Masculino" y
+#    deporte "Futbol".
+# 5. Promedio de mujeres inscriptos en "Hockey".
+# 6. Total de socios con sexo "Femenino" y deporte "Hockey".
+# 7. Total de socios con categoria "Mini" y deporte "Tenis".
+# 8. Total de socios que practican "Natacion".
+# 9. Pocentaje de socios que practican "Natacion".
+# 10. Pocentaje de socios con sexo "Femenino".
+# 11. Total de socios discriminados por:
+#     -Genero
+#     -Deporte
+#     -Categoria
 
 
 # Nombre de los indices
@@ -113,8 +129,104 @@ print("Lista de socios")
 print("="*50)
 print("")
 
+# 2.
+lista_activos = [ unSocio for unSocio in lista_socios
+	if unSocio[categoria] == "Activo" ]
+
+# 3.
+lista_juv_fem = [ unSocio for unSocio in lista_socios
+	if unSocio[categoria] == "Juvenil" and unSocio[sexo] == "Femenino" ]
+
+# 4.
+lista_min_mas_fut = [ unSocio for unSocio in lista_socios
+	if unSocio[categoria] == "Mini" and unSocio[sexo] == "Masculino" and unSocio[deporte] == "Futbol" ]
+
+# 5.
+cant_femeninos = len([unSocio for unSocio in lista_socios
+	if unSocio[sexo] == "Femenino"])
+# 6.
+cant_fem_hoc = len([unSocio for unSocio in lista_socios
+	if unSocio[sexo] == "Femenino" and unSocio[deporte] == "Hockey"])
+
+#promedio_fem_hoc = 
+
+# 7.
+cant_min_ten = len([unSocio for unSocio in lista_socios
+	if unSocio[categoria] == "Mini" and unSocio[deporte] == "Tenis"])
+
+# 8.
+cant_natacion = len([unSocio for unSocio in lista_socios
+	if unSocio[deporte] == "Natacion"])
+
+# 9.
+cant_socios = len(lista_socios)
+print("Cantidad Natacion:",cant_natacion)
+print("Cantidad Socios:",cant_socios)
+porcentaje_natacion = cant_natacion *100 // cant_socios
+print("Porcentaje natacion:",porcentaje_natacion)
+
+# 10.
+cant_femeninos = len([unSocio for unSocio in lista_socios
+	if unSocio[sexo] == "Femenino"])
+
+porcentaje_femeninos = cant_femeninos * 100 // cant_socios
+
+# 11.
+dicc_genero = {}
+dicc_deporte = {}
+dicc_categoria = {}
+
+for unSocio in lista_socios :
+	dicc_genero[unSocio[sexo]] = dicc_genero.get(unSocio[sexo],0) + 1
+	dicc_deporte[unSocio[deporte]] = dicc_deporte.get(unSocio[deporte],0) + 1
+	dicc_categoria[unSocio[categoria]] = dicc_categoria.get(unSocio[categoria],0) + 1
+
+# 1.
 for unSocio in lista_socios :
 	print("Nombre: " + unSocio[nombre])
 	print("Categoria: " + unSocio[categoria])
 	print("Deporte: " + unSocio[deporte])
 	print("-"*50)
+
+print("\nLista de socios Activos")
+print("="*50)
+for unSocio in lista_activos :
+	print("Nombre: " + unSocio[nombre])
+	print("Apellido: " + unSocio[apellido])
+
+
+print("\nLista con categoria Juvenil y genero Femenino")
+print("="*50)
+for unSocio in lista_juv_fem :
+	print("Nombre: " + unSocio[nombre])
+	print("Apellido: " + unSocio[apellido])
+
+
+print("\nLista con categoria Mini, genero Masculino y deporte Futbol")
+print("="*50)
+for unSocio in lista_min_mas_fut :
+	print("Nombre: " + unSocio[nombre])
+	print("Apellido: " + unSocio[apellido])
+
+
+print("\nTotal de socios con genero Femenino y deporte Hockey:", cant_fem_hoc)
+print("\nTotal de socios con categoria Mini y deporte Tenis:", cant_min_ten)
+print("\nTotal de socios con deporte Natacion:", cant_natacion)
+print("\nPorcentaje de socios con deporte Natacion:", porcentaje_natacion)
+print("\nPorcentaje de socios con genero Femenino:", porcentaje_femeninos)
+
+
+print("\nTotal de socios por Genero")
+print("="*50)
+for key, valor in dicc_genero.items():
+	print(key,":",valor)
+
+print("\nTotal de socios por Deporte")
+print("="*50)
+for key, valor in dicc_deporte.items():
+	print(key,":",valor)
+
+print("\nTotal de socios por Categoria")
+print("="*50)
+for key, valor in dicc_categoria.items():
+	print(key,":",valor)
