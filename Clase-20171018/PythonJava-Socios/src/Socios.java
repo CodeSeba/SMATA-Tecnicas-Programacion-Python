@@ -1,17 +1,79 @@
+/*
+Se realiza la inscripcion de socios en un club.
+La carga de datos finaliza cuando se ingresa
+como nombre "pepe".
+
+Los datos a ingresar son:
+-Nombre
+-Apellido
+-Edad
+-Sexo
+-Deporte
+
+Los deportes son:
+-Futbol
+-Hockey
+-Handball
+-Tenis
+-Natacion
+
+Para calcular la Categoria se usa
+la siguiente tabla:
+-Menor - 0 a 3 años.
+-Infantil - 3 a 6 años.
+-PreMini - 6 a 9 años.
+-Mini - 9 a 12 años.
+-Cadete - 12 a 15 años.
+-Juvenil - 15 a 18 años.
+-Activo - 18 a 60 años.
+-Vitalicio - Mayores a 60 años.
+
+1. Imprimir Nombre, Categoria y Deporte.
+
+(Ejercicios Agregados el 23 de Oct.)
+2. Total de socios con categoria "Activo".
+3. Total de socios con categoria "Juvenil" y sexo "Femenino".
+4. Total de socios con categoria "Mini", sexo "Masculino" y
+   deporte "Futbol".
+5. Promedio de mujeres inscriptos en "Hockey".
+6. Total de socios con sexo "Femenino" y deporte "Hockey".
+7. Total de socios con categoria "Mini" y deporte "Tenis".
+8. Total de socios que practican "Natacion".
+9. Pocentaje de socios que practican "Natacion".
+10. Pocentaje de socios con sexo "Femenino".
+11. Total de socios discriminados por:
+    -Genero
+    -Deporte
+    -Categoria
+*/
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Socios {
     public static void main (String[] args) {
         
+        // Nombres de los indices
         int nombre = 0;
         int apellido = 1;
         int edad = 2;
         int sexo = 3;
         int deporte = 4;
         int categoria = 5;
-                
+        
         ArrayList<ArrayList<String>> lista_socios = new ArrayList<ArrayList<String>>();
+        
+        int cant_activos = 0;
+        int cant_juv_fem = 0;
+        int cant_min_mas_fut = 0;
+        int cant_fem_hoc = 0;
+        int cant_min_ten = 0;
+        int cant_natacion = 0;
+        int cant_femeninos = 0;
+
+        double prom_fem_hoc = 0;
+        double porc_natacion = 0;
+        double porc_femeninos = 0;
         
         /*
         Scanner teclado = new Scanner( System.in );
@@ -100,11 +162,61 @@ public class Socios {
             unSocio.add(unaCategoria);
         });
         
+        // 1.
+        System.out.println("Lista de Socios");
+        System.out.println( "==============================" );
+        System.out.println("");
+        
         lista_socios.forEach( (unSocio) -> {
             System.out.println( "Nombre: " + unSocio.get(nombre) );
             System.out.println( "Categoria: " + unSocio.get(categoria) );
             System.out.println( "Deporte: " + unSocio.get(deporte) );
             System.out.println( "------------------------------" );
         });
+        
+        // 2. 3. 4. 6. 7. 8.
+        for ( ArrayList<String> unSocio : lista_socios ) {
+
+            String unaCategoria = unSocio.get(categoria);
+            String unSexo = unSocio.get(sexo);
+            String unDeporte = unSocio.get(deporte);
+            
+            
+            if (unaCategoria.equals("Activo")) cant_activos ++;
+                        
+            if (unSexo.equals("Femenino")) {
+                cant_femeninos ++;
+                
+                if (unaCategoria.equals("Juvenil")) cant_juv_fem ++;
+
+                if (unDeporte.equals("Hockey")) cant_fem_hoc ++;
+            }
+            
+            if (unaCategoria.equals("Mini")) {
+                if (unSexo.equals("Masculino"))
+                    if (unDeporte.equals("Futbol")) cant_min_mas_fut ++;
+                
+                if (unDeporte.equals("Tenis")) cant_min_ten ++;
+            }
+                        
+            if (unDeporte.equals("Natacion")) cant_natacion ++;
+        };
+        
+        // 9. 10.
+        int cant_socios = lista_socios.size();
+        
+        porc_natacion = cant_natacion * 100 / cant_socios;
+        
+        porc_femeninos = cant_femeninos * 100 / cant_socios;
+        
+        System.out.println("");
+        System.out.println("Total de socios Activos: " + cant_activos);
+        System.out.println("Total de socios Juvenil y Femenino: " + cant_juv_fem);
+        System.out.println("Total de socios Mini, Masculino y Futbol: " + cant_min_mas_fut);
+        System.out.println("Total de socios Femenino y Hockey: " + cant_fem_hoc);
+        System.out.println("Total de socios Mini y Tenis: " + cant_min_ten);
+        System.out.println("Total de socios Natacion: " + cant_natacion);
+        System.out.println("Porcentaje de Natacion: " + porc_natacion + " %");
+        System.out.println("Porcentaje de Femeninos: " + porc_femeninos + " %");
     }
 }
