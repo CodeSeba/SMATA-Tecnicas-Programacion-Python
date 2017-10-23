@@ -129,6 +129,13 @@ print("Lista de socios")
 print("="*50)
 print("")
 
+# 1.
+for unSocio in lista_socios :
+	print("Nombre: " + unSocio[nombre])
+	print("Categoria: " + unSocio[categoria])
+	print("Deporte: " + unSocio[deporte])
+	print("-"*50)
+
 # 2.
 cant_activos = len([ unSocio for unSocio in lista_socios
 	if unSocio[categoria] == "Activo" ])
@@ -176,13 +183,6 @@ for unSocio in lista_socios :
 	dicc_deporte[unSocio[deporte]] = dicc_deporte.get(unSocio[deporte],0) + 1
 	dicc_categoria[unSocio[categoria]] = dicc_categoria.get(unSocio[categoria],0) + 1
 
-# 1.
-for unSocio in lista_socios :
-	print("Nombre: " + unSocio[nombre])
-	print("Categoria: " + unSocio[categoria])
-	print("Deporte: " + unSocio[deporte])
-	print("-"*50)
-
 
 print("")
 print("Total de socios Activos:", cant_activos)
@@ -196,7 +196,7 @@ print("Porcentaje de socios con genero Femenino:", porcentaje_femeninos,"%")
 
 
 for unTitulo, unDiccionario in [("Genero",dicc_genero),("Deporte",dicc_deporte),("Categoria",dicc_categoria)]:
-	print("\nLista de socios por " + unTitulo)
+	print("\nTotal de socios por " + unTitulo)
 	print("="*50)
 	for key, valor in unDiccionario.items():
 		print(key,":",valor)

@@ -49,6 +49,8 @@ la siguiente tabla:
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Socios {
     public static void main (String[] args) {
@@ -218,5 +220,58 @@ public class Socios {
         System.out.println("Total de socios Natacion: " + cant_natacion);
         System.out.println("Porcentaje de Natacion: " + porc_natacion + " %");
         System.out.println("Porcentaje de Femeninos: " + porc_femeninos + " %");
+        
+        Map<String, Integer> dicc_genero = new HashMap<>();
+        Map<String, Integer> dicc_deporte = new HashMap<>();
+        Map<String, Integer> dicc_categoria = new HashMap<>();
+        
+        for (ArrayList<String> unSocio : lista_socios) {
+            
+            Integer unValor = 0;
+            
+            String unSexo = unSocio.get(sexo);
+            if (dicc_genero.containsKey(unSexo)) {
+                unValor = dicc_genero.get(unSexo);
+                dicc_genero.put(unSexo, unValor + 1);
+            } else {
+                dicc_genero.put(unSexo, 1);
+            }
+                
+            String unDeporte = unSocio.get(deporte);
+            if (dicc_deporte.containsKey(unDeporte)) {
+                unValor = dicc_deporte.get(unDeporte) ;
+                dicc_deporte.put(unDeporte, unValor + 1);
+            } else {
+                dicc_deporte.put(unDeporte, 1);
+            }
+            
+            String unaCategoria = unSocio.get(categoria);
+            if (dicc_categoria.containsKey(unaCategoria)) {
+                unValor = dicc_categoria.get(unaCategoria) ;
+                dicc_categoria.put(unaCategoria, unValor + 1);
+            } else {
+                dicc_categoria.put(unaCategoria, 1);
+            }
+        }
+        System.out.println("");
+        System.out.println("Total Socios por Genero");
+        System.out.println( "==============================" );
+        for (String key : dicc_genero.keySet()) {
+            System.out.println(key + " : " + dicc_genero.get(key));
+        }
+        
+        System.out.println("");
+        System.out.println("Total Socios por Deporte");
+        System.out.println( "==============================" );
+        for (String key : dicc_deporte.keySet()) {
+            System.out.println(key + " : " + dicc_deporte.get(key));
+        }
+        
+        System.out.println("");
+        System.out.println("Total Socios por Categoria");
+        System.out.println( "==============================" );
+        for (String key : dicc_categoria.keySet()) {
+            System.out.println(key + " : " + dicc_categoria.get(key));
+        }
     }
 }
