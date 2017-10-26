@@ -23,14 +23,15 @@ class Alumno:
 	def imprimirDatos(self):
 		print("Nombre:", self.nombre)
 		print("Notas: ",end="")
+
 		for unaNota in self.notas: print(unaNota,end=", ")
+
 		print("\n")
 
 	def calcularPromedio(self):
 		cant_notas = len(self.notas)
 
-		for unaNota in self.notas:
-			self.promedio += unaNota
+		for unaNota in self.notas: self.promedio += unaNota
 
 		self.promedio /= cant_notas
 
