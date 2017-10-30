@@ -1,0 +1,21 @@
+Crear una clase "Cuenta" con el constructor por defecto,
+el constructor con paramatros, los metodos getter y setter,
+y ademas los metodos "deposito", "extraccion" y "transferencia".
+
+La clase cuenta tiene los siguientes datos:
+-String, Nombre de cliente
+-String, Numero de cuenta
+-Saldo de la cuenta
+
+El metodo deposito aumenta el saldo en la cantidad que se indique.
+La cantidad no puede ser negativo.
+
+El metodo extraccion disminuye el saldo de la cuenta en la cantidad
+indicada. Pero antes se debe verificar que haya saldo suficiente.
+La cantidad no puede ser negativa.
+
+Los metodos deposito y extraccion devuelven True o False si se pudo
+realizar la operacion.
+
+El metodo transferencia permite pasar saldo de una cuenta a otra,
+siempre que en la cuenta origen haya saldo suficiente.
