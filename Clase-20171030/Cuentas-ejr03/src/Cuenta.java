@@ -24,15 +24,14 @@ siempre que en la cuenta origen haya saldo suficiente.
 
 public class Cuenta {
     private String nombre;
-    private int nroCuenta;
+    private String nroCuenta;
     private double saldo;
 
     // Constructor por defecto
-    public Cuenta() {
-    }
+    public Cuenta() {}
 
     // Constructor con parametros
-    public Cuenta(String nombre, int nroCuenta, double saldo) {
+    public Cuenta(String nombre, String nroCuenta, double saldo) {
         this.nombre = nombre;
         this.nroCuenta = nroCuenta;
         this.saldo = saldo;
@@ -46,11 +45,11 @@ public class Cuenta {
         this.nombre = nombre;
     }
 
-    public int getNroCuenta() {
+    public String getNroCuenta() {
         return nroCuenta;
     }
 
-    public void setNroCuenta(int nroCuenta) {
+    public void setNroCuenta(String nroCuenta) {
         this.nroCuenta = nroCuenta;
     }
 
@@ -78,8 +77,9 @@ public class Cuenta {
         else return false;
     }
     
-    public boolean transferencia(Cuenta cuentaDestino, int unMonto) {
+    public boolean transferencia(Cuenta cuentaDestino, double unMonto) {
         if ( saldo >= unMonto) {
+            extraccion(unMonto);
             cuentaDestino.deposito(unMonto);
             return true;
         }
