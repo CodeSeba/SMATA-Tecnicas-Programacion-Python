@@ -14,8 +14,8 @@ public class Contador {
     }
     
     public Contador(int contador) {
-        if ( contador < 0 ) { this.contador = 0; }
-        else { this.contador = contador; }
+        if ( contador < 0 ) this.contador = 0;
+        else this.contador = contador;
     }
 
     public int getContador() {
@@ -23,8 +23,8 @@ public class Contador {
     }
 
     public void setContador(int contador) {
-        if ( contador < 0 ) { this.contador = 0; }
-        else { this.contador = contador; }
+        if ( contador < 0 ) this.contador = 0;
+        else this.contador = contador;
     }
     
     public void incrementar() {
@@ -33,7 +33,7 @@ public class Contador {
     
     public void decrementar() {
         contador--;
-        if ( contador < 0 ) { contador = 0; }
+        if ( contador < 0 ) contador = 0;
     }
 }
 

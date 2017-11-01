@@ -8,9 +8,11 @@
 
 # Inicio de clase Alumno
 class Alumno:
-	nombre = ""
-	notas = []
-	promedio = 0
+	
+	def __init__(self):
+		self.nombre = ""
+		self.notas = []
+		self.promedio = 0
 
 	def cargarDatos(self):
 		self.nombre = input("Ingresar Nombre:\n")
