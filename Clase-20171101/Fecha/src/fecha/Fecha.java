@@ -18,6 +18,7 @@ Debe haber un metodo imprimir que muestre las fechas de la forma
 "dd-mm-aaaa", si el dia o mes es un digito se agrega un cero delante.
 Escribir un programa si la clase fecha funciona correctamente.
  */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -110,15 +111,26 @@ public class Fecha {
 		else dia++;
 	}
 
-	public void imprimirFecha() {
-		String unDia, unMes;
+	private String fechaString() {
+            String unDia, unMes, unaFecha;
 
-		if ( dia < 10 ) unDia = "0" + String.valueOf(dia);
-		else unDia = String.valueOf(dia);
+            if ( dia < 10 ) unDia = "0" + String.valueOf(dia);
+            else unDia = String.valueOf(dia);
 
-		if ( mes < 10 ) unMes = "0" + String.valueOf(mes);
-		else unMes = String.valueOf(mes);
+            if ( mes < 10 ) unMes = "0" + String.valueOf(mes);
+            else unMes = String.valueOf(mes);
+            
+            unaFecha = unDia + "-" + unMes + "-" + año;
+            return unaFecha;
+        }
+        
+        public void imprimirFecha() {
+		String unaFecha = fechaString();
 
-		System.out.print(unDia + "-" + unMes + "-" + año);
+		System.out.print(unaFecha);
 	}
+        
+        public String toString() {
+            return fechaString();
+        }
 }
