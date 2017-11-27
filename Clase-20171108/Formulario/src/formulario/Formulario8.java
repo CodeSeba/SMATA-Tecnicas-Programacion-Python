@@ -7,7 +7,7 @@ import java.awt.event.ItemEvent;
 import java.util.Arrays;
 
 public class Formulario8 extends JFrame implements ItemListener {
-	JLabel estadocivil;
+	JLabel estadocivil, genero;
 	JRadioButton
 			casado,
 			soltero,
@@ -20,10 +20,11 @@ public class Formulario8 extends JFrame implements ItemListener {
 	
 	public Formulario8 () {
 		setLayout(null);
-		setBackground(Color.magenta);
+		getContentPane().setBackground(Color.blue);
 		
 		estadocivil = new JLabel("Estado Civil:");
 		estadocivil.setBounds(50, 50, 100, 30);
+		estadocivil.setBackground(Color.yellow);
 		add(estadocivil);
 		
 		casado = new JRadioButton("Casado");
@@ -46,13 +47,18 @@ public class Formulario8 extends JFrame implements ItemListener {
 		concuvinato.addItemListener(this);
 		add(concuvinato);
 		
+		genero = new JLabel("Genero:");
+		genero.setBounds(100, 200, 100, 30);
+		genero.setBackground(Color.yellow);
+		add(genero);
+		
 		masculino = new JRadioButton("Masculino");
-		masculino.setBounds(200, 50, 150, 30);
+		masculino.setBounds(250, 50, 150, 30);
 		masculino.addItemListener(this);
 		add(masculino);
 		
 		femenino = new JRadioButton("Femenino");
-		femenino.setBounds(200, 100, 150, 30);
+		femenino.setBounds(250, 100, 150, 30);
 		femenino.addItemListener(this);
 		add(femenino);
 		
@@ -61,6 +67,10 @@ public class Formulario8 extends JFrame implements ItemListener {
 		bg1.add(soltero);
 		bg1.add(viudo);
 		bg1.add(concuvinato);
+		
+		bg2 = new ButtonGroup();
+		bg2.add(masculino);
+		bg2.add(femenino);
 	}
 	
 	@Override
