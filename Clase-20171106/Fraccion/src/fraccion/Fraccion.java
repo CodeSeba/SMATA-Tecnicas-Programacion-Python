@@ -26,7 +26,7 @@ public class Fraccion {
 	
 	private boolean validarDenominador(int unDenominador) {
 		if ( unDenominador == 0 ) {
-			System.out.println("ERROR: Denominaodr igual a cero.");
+			System.out.println("ERROR: Denominador igual a cero.");
 			return false;
 		}
 		else return true;
@@ -39,49 +39,79 @@ public class Fraccion {
 	
 	
 	
-	private int maximoComunDenominador(int denominador1, int denominador2) {
+	private int maximoComunDivisor() {
+		int u,v,r;
 		
+		if (numerador < 0) u= -1 * numerador;
+		else u = numerador;
+		
+		if (denominador < 0) v= -1 * denominador;
+		else v = denominador;
+		
+		if ( v == 0 ) return u;
+		
+		while ( v != 0 ) {
+			r = u % v;
+			u = v;
+			v = r;
+		}
+		
+		return u;
 	}
 	
 	public Fraccion simplifica() {
+		int mcd = maximoComunDivisor();
 		
+		numerador /= mcd;
+		denominador /= mcd;
+		
+		return this;
 	}
 	
 	public Fraccion suma(Fraccion otraFraccion) {
-		int operando1 = numerador;
-		int operando2 = otraFraccion.getNumerador();
-		int denominadorComun = maximoComunDenominador(operando1, operando2);
+		int num1 = numerador;
+		int num2 = otraFraccion.getNumerador();
+		int den1 = denominador;
+		int den2 = otraFraccion.getDenominador();
 		
-		int suma = (operando1 + operando2) * denominadorComun;
 		
-		Fraccion resultado = new Fraccion(suma,denominadorComun);
+		int sumaNum = num1 * den2 + num2 * den1;
+		int sumaDen = den1 * den2;
 		
-		return resultado.simplifica();
+		setNumerador(sumaNum);
+		setDenominador(sumaDen);
+		simplifica();
+		
+		return this;
 	}
 	
 	public Fraccion resta(Fraccion otraFraccion) {
-		int numerador = otraFraccion.getNumerador();
+		int num2 = otraFraccion.getNumerador();
 		
-		otraFraccion.setNumerador(-1 * numerador);
+		otraFraccion.setNumerador(-1 * num2);
 		
 		return suma(otraFraccion);
 	}
 	
 	public Fraccion multiplica(Fraccion otraFraccion) {
-		int numerador2 = otraFraccion.getNumerador();
-		int denominador2 = otraFraccion.getDenominador();
+		int num1 = numerador;
+		int num2 = otraFraccion.getNumerador();
+		int den1 = denominador;
+		int den2 = otraFraccion.getDenominador();
 		
-		Fraccion resultado = new Fraccion(numerador * numerador2, denominador * denominador2);
+		setNumerador(num1 * num2);
+		setDenominador(den1 * den2);
+		simplifica();
 		
-		return resultado.simplifica();
+		return this;
 	}
 	
 	public Fraccion divide(Fraccion otraFraccion) {
-		int numerador2 = otraFraccion.getNumerador();
-		int denominador2 = otraFraccion.getDenominador();
+		int num2 = otraFraccion.getNumerador();
+		int den2 = otraFraccion.getDenominador();
 		
-		otraFraccion.setNumerador(denominador2);
-		otraFraccion.setDenominador(numerador2);
+		otraFraccion.setNumerador(den2);
+		otraFraccion.setDenominador(num2);
 		
 		return multiplica(otraFraccion);
 	}
