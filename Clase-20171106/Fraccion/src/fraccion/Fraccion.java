@@ -18,7 +18,7 @@ public class Fraccion {
 		numerador = 0;
 		denominador = 1;
 	}
-	
+
 	public Fraccion(int numerador, int denominador) {
 		this.numerador = numerador;
 		this.denominador = denominador;
