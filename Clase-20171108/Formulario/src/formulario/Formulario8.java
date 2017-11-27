@@ -20,45 +20,50 @@ public class Formulario8 extends JFrame implements ItemListener {
 	
 	public Formulario8 () {
 		setLayout(null);
-		getContentPane().setBackground(Color.blue);
+		getContentPane().setBackground(Color.cyan);
 		
 		estadocivil = new JLabel("Estado Civil:");
 		estadocivil.setBounds(50, 50, 100, 30);
-		estadocivil.setBackground(Color.yellow);
 		add(estadocivil);
 		
 		casado = new JRadioButton("Casado");
 		casado.setBounds(150, 50, 100, 30);
+		casado.setBackground(Color.yellow);
 		casado.addItemListener(this);
 		add(casado);
 		
 		soltero = new JRadioButton("Soltero");
 		soltero.setBounds(150, 100, 100, 30);
+		soltero.setBackground(Color.yellow);
 		soltero.addItemListener(this);
 		add(soltero);
 		
 		viudo = new JRadioButton("Viudo");
 		viudo.setBounds(150, 150, 100, 30);
+		viudo.setBackground(Color.yellow);
 		viudo.addItemListener(this);
 		add(viudo);
 		
 		concuvinato = new JRadioButton("Concuvinato");
 		concuvinato.setBounds(150, 200, 150, 30);
+		concuvinato.setBackground(Color.yellow);
 		concuvinato.addItemListener(this);
 		add(concuvinato);
 		
 		genero = new JLabel("Genero:");
-		genero.setBounds(100, 200, 100, 30);
+		genero.setBounds(250, 10, 100, 30);
 		genero.setBackground(Color.yellow);
 		add(genero);
 		
 		masculino = new JRadioButton("Masculino");
 		masculino.setBounds(250, 50, 150, 30);
+		masculino.setBackground(Color.yellow);
 		masculino.addItemListener(this);
 		add(masculino);
 		
 		femenino = new JRadioButton("Femenino");
 		femenino.setBounds(250, 100, 150, 30);
+		femenino.setBackground(Color.yellow);
 		femenino.addItemListener(this);
 		add(femenino);
 		
