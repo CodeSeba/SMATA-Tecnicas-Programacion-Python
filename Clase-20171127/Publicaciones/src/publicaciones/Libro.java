@@ -1,7 +1,5 @@
 package publicaciones;
 
-//import publicaciones.Publicaciones;
-
 public class Libro extends Publicaciones implements Prestable{
 	private boolean prestado;
 	
