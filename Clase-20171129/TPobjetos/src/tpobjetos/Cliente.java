@@ -17,7 +17,7 @@ public class Cliente {
     public void aplicarSaldo(double credito) {
         saldo += credito;
     }
-    	
+
 	public int getDni() {
 		return dni;
 	}
@@ -49,23 +49,5 @@ public class Cliente {
 	public void setLibros(List libros) {
 		this.libros = libros;
 	}
-	
-	/*
-	public VIP membresia() {
-        int cant=librosComprados.size(); //size es para el tamaño o cuenta la lista, en otros lenguajes es cout
-        if (cant>=15){
-            VIP auxiliar=new VIP(this);
-            return auxiliar;
-        }else{
-            System.out.println("Cliente no calificado. Membresía normal");;
-        }
-    }*/
-
-    /* public Cliente(String nombre, String usuario, int dni){//constructor con parametros
-        this.nombre=nombre;
-        this.usuario=usuario;
-        this.dni=dni;
     
-    }
-    */
 }
