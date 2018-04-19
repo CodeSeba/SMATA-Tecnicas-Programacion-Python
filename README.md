@@ -21,7 +21,7 @@ Activar **Utilizar indices en arreglos y cadenas en base 0**
 
 # PYTHON
 
-El 4 de septiembre de 2017 la profe comienza a utiliar Python 3.6.
+El 4 de septiembre de 2017 la profe comienza a utilizar Python 3.6.
 Se debe aclarar que hay dos versiones actualmente utilizadas.
 La version 2.x y la version 3.x.  Vamos a utilizar la version 3.6.2 para este curso.
 
